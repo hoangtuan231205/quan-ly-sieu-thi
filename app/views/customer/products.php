@@ -457,9 +457,9 @@ if (!empty($filters['category_id']) && !empty($categories)) {
 
 <!-- Breadcrumb -->
 <div class="breadcrumb-nav">
-    <a href="<?= BASE_URL ?>/public/">🏠 Trang chủ</a>
+    <a href="<?= BASE_URL ?>/">🏠 Trang chủ</a>
     <span>›</span>
-    <a href="<?= BASE_URL ?>/public/products">Sản phẩm</a>
+    <a href="<?= BASE_URL ?>/products">Sản phẩm</a>
     <?php if ($currentCategoryName !== 'Sản phẩm'): ?>
     <span>›</span>
     <span><?= htmlspecialchars($currentCategoryName) ?></span>
@@ -474,7 +474,7 @@ if (!empty($filters['category_id']) && !empty($categories)) {
             🎚️ Lọc theo giá
         </div>
 
-        <form method="GET" action="<?= BASE_URL ?>/public/products" class="filter-section">
+        <form method="GET" action="<?= BASE_URL ?>/products" class="filter-section">
             <input type="hidden" name="category" value="<?= $filters['category_id'] ?? '' ?>">
             <input type="hidden" name="sort" value="<?= $filters['sort'] ?? '' ?>">
             
@@ -513,7 +513,7 @@ if (!empty($filters['category_id']) && !empty($categories)) {
                     $isActive = true;
                 }
                 
-                $url = BASE_URL . '/public/products?';
+                $url = BASE_URL . '/products?';
                 if ($range['min'] > 0) $url .= 'min_price=' . $range['min'] . '&';
                 if ($range['max'] > 0) $url .= 'max_price=' . $range['max'] . '&';
                 if (!empty($filters['category_id'])) $url .= 'category=' . $filters['category_id'] . '&';
@@ -547,12 +547,12 @@ if (!empty($filters['category_id']) && !empty($categories)) {
                     $imagePath = getProductImagePath($product['Hinh_anh'] ?? '');
                     if (!empty($imagePath)): 
                     ?>
-                        <a href="<?= BASE_URL ?>/public/products/detail/<?= $product['ID_sp'] ?>">
+                        <a href="<?= BASE_URL ?>/products/detail/<?= $product['ID_sp'] ?>">
                             <img src="<?= asset('img/products/' . $imagePath) ?>" 
                                  alt="<?= htmlspecialchars($product['Ten']) ?>">
                         </a>
                     <?php else: ?>
-                        <a href="<?= BASE_URL ?>/public/products/detail/<?= $product['ID_sp'] ?>">
+                        <a href="<?= BASE_URL ?>/products/detail/<?= $product['ID_sp'] ?>">
                             <img src="<?= asset('img/placeholder-product.png') ?>" 
                                  alt="<?= htmlspecialchars($product['Ten']) ?>">
                         </a>
@@ -561,7 +561,7 @@ if (!empty($filters['category_id']) && !empty($categories)) {
                 
                 <!-- Product Info -->
                 <div class="product-info">
-                    <a href="<?= BASE_URL ?>/public/products/detail/<?= $product['ID_sp'] ?>" style="text-decoration: none;">
+                    <a href="<?= BASE_URL ?>/products/detail/<?= $product['ID_sp'] ?>" style="text-decoration: none;">
                         <h3 class="product-name"><?= htmlspecialchars($product['Ten']) ?></h3>
                     </a>
                     
@@ -605,21 +605,21 @@ if (!empty($filters['category_id']) && !empty($categories)) {
         <!-- Pagination -->
         <?php if (!empty($pagination) && $pagination['total_pages'] > 1): ?>
         <div class="pagination-container">
-            <a href="<?= $pagination['current_page'] > 1 ? BASE_URL . '/public/products?' . http_build_query(array_merge($filters, ['page' => $pagination['current_page'] - 1])) : '#' ?>" 
+            <a href="<?= $pagination['current_page'] > 1 ? BASE_URL . '/products?' . http_build_query(array_merge($filters, ['page' => $pagination['current_page'] - 1])) : '#' ?>" 
                class="page-btn <?= $pagination['current_page'] <= 1 ? 'disabled' : '' ?>">‹</a>
             
             <?php for ($i = 1; $i <= min(5, $pagination['total_pages']); $i++): ?>
-            <a href="<?= BASE_URL ?>/public/products?<?= http_build_query(array_merge($filters, ['page' => $i])) ?>" 
+            <a href="<?= BASE_URL ?>/products?<?= http_build_query(array_merge($filters, ['page' => $i])) ?>" 
                class="page-btn <?= $pagination['current_page'] == $i ? 'active' : '' ?>"><?= $i ?></a>
             <?php endfor; ?>
             
             <?php if ($pagination['total_pages'] > 5): ?>
             <span style="color: #999;">...</span>
-            <a href="<?= BASE_URL ?>/public/products?<?= http_build_query(array_merge($filters, ['page' => $pagination['total_pages']])) ?>" 
+            <a href="<?= BASE_URL ?>/products?<?= http_build_query(array_merge($filters, ['page' => $pagination['total_pages']])) ?>" 
                class="page-btn"><?= $pagination['total_pages'] ?></a>
             <?php endif; ?>
             
-            <a href="<?= $pagination['current_page'] < $pagination['total_pages'] ? BASE_URL . '/public/products?' . http_build_query(array_merge($filters, ['page' => $pagination['current_page'] + 1])) : '#' ?>" 
+            <a href="<?= $pagination['current_page'] < $pagination['total_pages'] ? BASE_URL . '/products?' . http_build_query(array_merge($filters, ['page' => $pagination['current_page'] + 1])) : '#' ?>" 
                class="page-btn <?= $pagination['current_page'] >= $pagination['total_pages'] ? 'disabled' : '' ?>">›</a>
         </div>
         <?php endif; ?>
@@ -630,7 +630,7 @@ if (!empty($filters['category_id']) && !empty($categories)) {
             <i class="fas fa-box-open"></i>
             <h4>Không tìm thấy sản phẩm</h4>
             <p>Thử thay đổi bộ lọc hoặc tìm kiếm khác</p>
-            <a href="<?= BASE_URL ?>/public/products" class="btn-product btn-add-cart" style="display: inline-block; margin-top: 16px; padding: 12px 24px;">
+            <a href="<?= BASE_URL ?>/products" class="btn-product btn-add-cart" style="display: inline-block; margin-top: 16px; padding: 12px 24px;">
                 Xem tất cả sản phẩm
             </a>
         </div>
@@ -641,7 +641,7 @@ if (!empty($filters['category_id']) && !empty($categories)) {
 <script>
 // Go to product detail
 function goToProduct(productId) {
-    window.location.href = '<?= BASE_URL ?>/public/products/detail/' + productId;
+    window.location.href = '<?= BASE_URL ?>/products/detail/' + productId;
 }
 
 // Apply sort
@@ -665,7 +665,7 @@ function addToCart(productId, quantity = 1) {
     formData.append('quantity', quantity);
     formData.append('csrf_token', csrfToken);
     
-    fetch('<?= BASE_URL ?>/public/cart/add', {
+    fetch('<?= BASE_URL ?>/cart/add', {
         method: 'POST',
         body: formData,
         headers: { 'X-Requested-With': 'XMLHttpRequest' }
@@ -691,7 +691,7 @@ function buyNow(productId, quantity = 1) {
     
     const form = document.createElement('form');
     form.method = 'POST';
-    form.action = '<?= BASE_URL ?>/public/cart/buy-now';
+    form.action = '<?= BASE_URL ?>/cart/buy-now';
     
     const productInput = document.createElement('input');
     productInput.type = 'hidden';
@@ -717,7 +717,7 @@ function buyNow(productId, quantity = 1) {
 
 // Update cart count
 function updateCartCount() {
-    fetch('<?= BASE_URL ?>/public/cart/count', {
+    fetch('<?= BASE_URL ?>/cart/count', {
         headers: { 'X-Requested-With': 'XMLHttpRequest' }
     })
     .then(r => r.json())

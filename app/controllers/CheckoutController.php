@@ -47,7 +47,7 @@ class CheckoutController extends Controller {
             if (!$product) {
                 unset($_SESSION['direct_checkout']);
                 Session::flash('error', 'Sản phẩm không tồn tại');
-                redirect(BASE_URL . '/public/products');
+                redirect(BASE_URL . '/products');
                 return;
             }
             
@@ -55,7 +55,7 @@ class CheckoutController extends Controller {
             if ($product['So_luong_ton'] < $directData['quantity']) {
                 unset($_SESSION['direct_checkout']);
                 Session::flash('error', 'Sản phẩm không đủ số lượng trong kho');
-                redirect(BASE_URL . '/public/products/detail/' . $product['ID_sp']);
+                redirect(BASE_URL . '/products/detail/' . $product['ID_sp']);
                 return;
             }
             
@@ -83,7 +83,7 @@ class CheckoutController extends Controller {
             
             if (empty($cartItems)) {
                 Session::flash('error', 'Giỏ hàng trống hoặc sản phẩm không hợp lệ.');
-                redirect(BASE_URL . '/public/cart');
+                redirect(BASE_URL . '/cart');
                 return;
             }
         }
@@ -105,7 +105,7 @@ class CheckoutController extends Controller {
                 unset($_SESSION['direct_checkout']);
             }
             Session::flash('error', implode('<br>', $errors));
-            redirect(BASE_URL . '/public/cart');
+            redirect(BASE_URL . '/cart');
             return;
         }
         
@@ -160,14 +160,14 @@ class CheckoutController extends Controller {
      */
     public function process() {
         if (!$this->isMethod('POST')) {
-            redirect(BASE_URL . '/public/checkout');
+            redirect(BASE_URL . '/checkout');
         }
         
         $userId = Session::getUserId();
         
         if (!Middleware::verifyCsrf(post('csrf_token', ''))) {
             Session::flash('error', 'Phiên làm việc không hợp lệ. Vui lòng thử lại.');
-            redirect(BASE_URL . '/public/checkout');
+            redirect(BASE_URL . '/checkout');
         }
         
         $validation = $this->validate($_POST, [
@@ -179,14 +179,14 @@ class CheckoutController extends Controller {
         if (!$validation['valid']) {
             $firstError = reset($validation['errors']);
             Session::flash('error', $firstError[0]);
-            redirect(BASE_URL . '/public/checkout');
+            redirect(BASE_URL . '/checkout');
         }
 
         // Additional validation for address length
         $address = $this->sanitize(post('receiver_address', ''));
         if (strlen($address) < 10) {
             Session::flash('error', 'Địa chỉ giao hàng phải có ít nhất 10 ký tự.');
-            redirect(BASE_URL . '/public/checkout');
+            redirect(BASE_URL . '/checkout');
         }
         
         $orderData = [
@@ -212,7 +212,7 @@ class CheckoutController extends Controller {
             if (!$product || $product['So_luong_ton'] < $directData['quantity']) {
                 unset($_SESSION['direct_checkout']);
                 Session::flash('error', 'Sản phẩm không khả dụng hoặc không đủ số lượng');
-                redirect(BASE_URL . '/public/products');
+                redirect(BASE_URL . '/products');
                 return;
             }
             
@@ -241,14 +241,14 @@ class CheckoutController extends Controller {
         
         if (empty($cartItems)) {
             Session::flash('error', 'Giỏ hàng trống');
-            redirect(BASE_URL . '/public/cart');
+            redirect(BASE_URL . '/cart');
             return;
         }
         
         foreach ($cartItems as $item) {
             if ($item['So_luong'] > $item['So_luong_ton']) {
                 Session::flash('error', "Sản phẩm '{$item['Ten']}' không đủ số lượng trong kho");
-                redirect(BASE_URL . '/public/cart');
+                redirect(BASE_URL . '/cart');
                 return;
             }
         }
@@ -281,7 +281,7 @@ class CheckoutController extends Controller {
             
             if (!$orderId) {
                 Session::flash('error', 'Đặt hàng thất bại. Vui lòng thử lại.');
-                redirect(BASE_URL . '/public/checkout');
+                redirect(BASE_URL . '/checkout');
                 return;
             }
             
@@ -306,7 +306,7 @@ class CheckoutController extends Controller {
             // CHUYỂN HƯỚNG VỀ TRANG ĐƠN HÀNG CỦA TÔI
             // =====================================================================
             Session::flash('success', 'Đặt hàng thành công! Mã đơn hàng: #' . $orderId);
-            redirect(BASE_URL . '/public/orders');
+            redirect(BASE_URL . '/orders');
             
         } catch (Exception $e) {
             error_log("Checkout Error: " . $e->getMessage());
@@ -316,7 +316,7 @@ class CheckoutController extends Controller {
             }
             
             Session::flash('error', 'Có lỗi xảy ra trong quá trình đặt hàng. Vui lòng thử lại.');
-            redirect(BASE_URL . '/public/checkout');
+            redirect(BASE_URL . '/checkout');
         }
     }
     
@@ -327,13 +327,13 @@ class CheckoutController extends Controller {
         $orderId = Session::getFlash('last_order_id');
         
         if (!$orderId) {
-            redirect(BASE_URL . '/public/');
+            redirect(BASE_URL . '/');
         }
         
         $order = $this->orderModel->findById($orderId);
         
         if (!$order || $order['ID_tk'] != Session::getUserId()) {
-            redirect(BASE_URL . '/public/');
+            redirect(BASE_URL . '/');
         }
         
         $orderDetails = $this->orderModel->getOrderDetails($orderId);

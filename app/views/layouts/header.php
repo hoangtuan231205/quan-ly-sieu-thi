@@ -64,7 +64,7 @@
             
             <!-- Search Bar -->
             <div class="col-lg-6 col-md-5 col-12 order-3 order-md-2 mt-3 mt-md-0">
-                <form action="<?= BASE_URL ?>/public/products" method="GET" class="search-form">
+                <form action="<?= BASE_URL ?>/products" method="GET" class="search-form">
                     <div class="search-wrapper">
                         <input 
                             type="text" 
@@ -88,10 +88,10 @@
                     <?php if (Session::isLoggedIn()): ?>
                         <!-- POS Icon (Admin only) - Outside dropdown for horizontal layout -->
                         <?php if (Session::isAdmin()): ?>
-                            <a href="<?= BASE_URL ?>/public/admin" class="action-btn admin-btn" title="Quản trị">
+                            <a href="<?= BASE_URL ?>/admin" class="action-btn admin-btn" title="Quản trị">
                                 <i class="fas fa-tachometer-alt"></i>
                             </a>
-                            <a href="<?= BASE_URL ?>/public/pos" class="action-btn pos-btn" title="Bán hàng tại quầy">
+                            <a href="<?= BASE_URL ?>/pos" class="action-btn pos-btn" title="Bán hàng tại quầy">
                                 <i class="fas fa-cash-register"></i>
                             </a>
                         <?php endif; ?>
@@ -99,37 +99,37 @@
                         <!-- Logged In - User Menu -->
                         <div class="user-menu dropdown user-dropdown">
                             <!-- Click to show dropdown menu -->
-                            <a href="<?= BASE_URL ?>/public/user/profile" class="action-btn" title="Tài khoản">
+                            <a href="<?= BASE_URL ?>/user/profile" class="action-btn" title="Tài khoản">
                                 <i class="fas fa-user-circle"></i>
                                 <span class="user-name"><?= htmlspecialchars(Session::getUserName() ?? 'User') ?></span>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end">
-                                <li><a class="dropdown-item" href="<?= BASE_URL ?>/public/user/profile">
+                                <li><a class="dropdown-item" href="<?= BASE_URL ?>/user/profile">
                                     <i class="fas fa-user me-2"></i>Thông tin tài khoản
                                 </a></li>
-                                <li><a class="dropdown-item" href="<?= BASE_URL ?>/public/orders">
+                                <li><a class="dropdown-item" href="<?= BASE_URL ?>/orders">
                                     <i class="fas fa-receipt me-2"></i>Đơn hàng của tôi
                                 </a></li>
                                 
                                 <?php if (Session::isAdmin()): ?>
                                 <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item text-primary" href="<?= BASE_URL ?>/public/admin/products">
+                                <li><a class="dropdown-item text-primary" href="<?= BASE_URL ?>/admin/products">
                                     <i class="fas fa-box me-2"></i>Quản lý sản phẩm
                                 </a></li>
-                                <li><a class="dropdown-item text-primary" href="<?= BASE_URL ?>/public/admin/orders">
+                                <li><a class="dropdown-item text-primary" href="<?= BASE_URL ?>/admin/orders">
                                     <i class="fas fa-truck me-2"></i>Quản lý giao hàng
                                 </a></li>
                                 <?php endif; ?>
 
                                 <?php if (Session::isWarehouse()): ?>
                                 <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item text-success" href="<?= BASE_URL ?>/public/warehouse">
+                                <li><a class="dropdown-item text-success" href="<?= BASE_URL ?>/warehouse">
                                     <i class="fas fa-warehouse me-2"></i>Quản lý kho
                                 </a></li>
                                 <?php endif; ?>
 
                                 <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="<?= BASE_URL ?>/public/auth/logout">
+                                <li><a class="dropdown-item" href="<?= BASE_URL ?>/auth/logout">
                                     <i class="fas fa-sign-out-alt me-2"></i>Đăng xuất
                                 </a></li>
                             </ul>
@@ -137,10 +137,10 @@
                     <?php else: ?>
                         <!-- Not Logged In - Login/Register Buttons -->
                         <div class="auth-buttons">
-                            <a href="<?= BASE_URL ?>/public/auth/login" class="action-btn" title="Đăng nhập">
+                            <a href="<?= BASE_URL ?>/auth/login" class="action-btn" title="Đăng nhập">
                                 <i class="fas fa-user"></i>
                             </a>
-                            <a href="<?= BASE_URL ?>/public/auth/register" class="btn btn-sm btn-woodland" style="margin-left: 8px;">
+                            <a href="<?= BASE_URL ?>/auth/register" class="btn btn-sm btn-woodland" style="margin-left: 8px;">
                                 <i class="fas fa-user-plus me-1"></i>Đăng ký
                             </a>
                         </div>
@@ -148,7 +148,7 @@
                     
                     
                     <!-- Icon Giỏ hàng -->
-                    <a href="<?= BASE_URL ?>/public/cart" class="action-btn cart-btn" title="Giỏ hàng">
+                    <a href="<?= BASE_URL ?>/cart" class="action-btn cart-btn" title="Giỏ hàng">
                         <i class="fas fa-shopping-cart"></i>
                         <span class="cart-badge"><?= $cart_count ?? 0 ?></span>
                     </a>
@@ -199,7 +199,7 @@ $defaultIcon = 'fas fa-shopping-basket';
                         $icon = $categoryIcons[$cat['ID_danh_muc']] ?? $defaultIcon;
                     ?>
                     <li class="nav-item <?= $hasChildren ? 'has-dropdown' : '' ?>">
-                        <a href="<?= BASE_URL ?>/public/products?category=<?= $cat['ID_danh_muc'] ?>" class="nav-link">
+                        <a href="<?= BASE_URL ?>/products?category=<?= $cat['ID_danh_muc'] ?>" class="nav-link">
                             <!-- Icon (Optional: user claims images wrong, fixing icons helps) -->
                             <!-- <i class="<?= $icon ?> me-1"></i> --> 
                             <?= htmlspecialchars($cat['Ten_danh_muc']) ?>
@@ -212,7 +212,7 @@ $defaultIcon = 'fas fa-shopping-basket';
                         <div class="dropdown-menu">
                             <?php foreach ($cat['children'] as $child): ?>
                             <?php $childIcon = $categoryIcons[$child['ID_danh_muc']] ?? 'fas fa-circle'; ?>
-                            <a href="<?= BASE_URL ?>/public/products?category=<?= $child['ID_danh_muc'] ?>" class="dropdown-item">
+                            <a href="<?= BASE_URL ?>/products?category=<?= $child['ID_danh_muc'] ?>" class="dropdown-item">
                                 <i class="<?= $childIcon ?> me-2" style="font-size: 0.8em;"></i><?= htmlspecialchars($child['Ten_danh_muc']) ?>
                             </a>
                             <?php endforeach; ?>

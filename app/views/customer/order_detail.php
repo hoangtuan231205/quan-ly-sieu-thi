@@ -69,16 +69,16 @@ include __DIR__ . '/../layouts/header.php';
 <div class="detail-page-wrapper">
     <!-- Breadcrumb -->
     <div class="breadcrumb-section">
-        <a href="<?= BASE_URL ?>/public/">Trang chủ</a>
+        <a href="<?= BASE_URL ?>/">Trang chủ</a>
         <span>›</span>
-        <a href="<?= BASE_URL ?>/public/orders">Đơn hàng của tôi</a>
+        <a href="<?= BASE_URL ?>/orders">Đơn hàng của tôi</a>
         <span>›</span>
         <span>Chi tiết đơn hàng</span>
     </div>
 
     <div class="detail-container">
         <div class="back-button-container">
-            <a href="<?= BASE_URL ?>/public/orders" class="btn btn-secondary btn-sm">
+            <a href="<?= BASE_URL ?>/orders" class="btn btn-secondary btn-sm">
                 <i class="fas fa-arrow-left me-2"></i>
                 Quay lại
             </a>
@@ -199,7 +199,7 @@ include __DIR__ . '/../layouts/header.php';
                                  onerror="this.src='<?= asset('img/placeholder-product.png') ?>'">
                             <div class="order-item-info">
                                 <div class="order-item-name">
-                                    <a href="<?= BASE_URL ?>/public/products/detail/<?= $item['ID_sp'] ?>" 
+                                    <a href="<?= BASE_URL ?>/products/detail/<?= $item['ID_sp'] ?>" 
                                        style="text-decoration: none; color: #291D51;">
                                         <?= htmlspecialchars($item['Ten_sp']) ?>
                                     </a>
@@ -253,7 +253,7 @@ include __DIR__ . '/../layouts/header.php';
                 <!-- Actions -->
                 <div class="detail-box">
                     <div style="display: flex; gap: 12px; flex-direction: column;">
-                        <a href="<?= BASE_URL ?>/public/orders" class="btn-back" style="text-align: center; width: 100%; box-sizing: border-box;">
+                        <a href="<?= BASE_URL ?>/orders" class="btn-back" style="text-align: center; width: 100%; box-sizing: border-box;">
                             <i class="fas fa-arrow-left me-2"></i>
                             Quay lại lịch sử
                         </a>
@@ -288,7 +288,7 @@ include __DIR__ . '/../layouts/header.php';
 function cancelOrder(orderId) {
     if (!confirm('Bạn có chắc muốn hủy đơn hàng này?')) return;
     
-    fetch('<?= BASE_URL ?>/public/orders/cancel', {
+    fetch('<?= BASE_URL ?>/orders/cancel', {
         method: 'POST',
         headers: { 
             'Content-Type': 'application/json',
@@ -308,7 +308,7 @@ function cancelOrder(orderId) {
             console.log('Parsed data:', data);
             if (data.success) {
                 showNotification('Đã hủy đơn hàng thành công', 'success');
-                setTimeout(() => location.href = '<?= BASE_URL ?>/public/orders', 1000);
+                setTimeout(() => location.href = '<?= BASE_URL ?>/orders', 1000);
             } else {
                 showNotification(data.message, 'error');
             }

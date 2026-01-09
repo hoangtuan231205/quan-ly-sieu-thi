@@ -24,7 +24,7 @@
         <div class="header-divider"></div>
 
         <!-- Quick Action -->
-        <a href="<?= BASE_URL ?>/public/pos" class="btn-primary-action">
+        <a href="<?= BASE_URL ?>/pos" class="btn-primary-action">
             <i class="fas fa-cash-register"></i>
             <span>Bán hàng</span>
         </a>

@@ -368,7 +368,7 @@ $total = $total ?? count($imports);
     <div class="warehouse-container">
         <!-- Breadcrumb -->
         <div class="admin-breadcrumb" style="margin-bottom: 16px;">
-            <a href="<?= BASE_URL ?>/public/">Trang chủ</a>
+            <a href="<?= BASE_URL ?>/">Trang chủ</a>
             <i class="fas fa-chevron-right" style="font-size: 10px;"></i>
             <span class="current">Quản lý phiếu nhập</span>
         </div>
@@ -389,7 +389,7 @@ $total = $total ?? count($imports);
                     'ngay_nhap' => $filters['ngay_nhap'] ?? '',
                 ]);
                 ?>
-                <a href="<?= BASE_URL ?>/public/index.php?url=warehouse/exportImport&<?= $qs ?>" class="btn-warehouse-secondary">
+                <a href="<?= BASE_URL ?>/index.php?url=warehouse/exportImport&<?= $qs ?>" class="btn-warehouse-secondary">
                     <i class="fas fa-download"></i>
                     <span>Xuất Excel</span>
                 </a>
@@ -401,7 +401,7 @@ $total = $total ?? count($imports);
         </div>
         
         <!-- Filters Toolbar -->
-        <form id="wh-search-form" class="warehouse-toolbar" method="GET" action="<?= BASE_URL ?>/public/warehouse/dashboard">
+        <form id="wh-search-form" class="warehouse-toolbar" method="GET" action="<?= BASE_URL ?>/warehouse/dashboard">
             <div class="warehouse-field">
                 <label>Mã phiếu</label>
                 <input name="ma_phieu" value="<?= htmlspecialchars($filters['ma_phieu']) ?>" placeholder="VD: PNK20251229">
@@ -486,7 +486,7 @@ $total = $total ?? count($imports);
                 <div class="warehouse-pagination">
                     <?php for ($i=1; $i<= (int)$pagination['total_pages']; $i++): ?>
                         <a class="warehouse-page-btn <?= ($i == (int)$pagination['current_page']) ? 'active' : '' ?>"
-                           href="<?= BASE_URL ?>/public/warehouse/dashboard?ma_phieu=<?= urlencode($filters['ma_phieu']) ?>&nguoi_tao=<?= urlencode($filters['nguoi_tao']) ?>&ngay_nhap=<?= urlencode($filters['ngay_nhap']) ?>&page=<?= $i ?>">
+                           href="<?= BASE_URL ?>/warehouse/dashboard?ma_phieu=<?= urlencode($filters['ma_phieu']) ?>&nguoi_tao=<?= urlencode($filters['nguoi_tao']) ?>&ngay_nhap=<?= urlencode($filters['ngay_nhap']) ?>&page=<?= $i ?>">
                             <?= $i ?>
                         </a>
                     <?php endfor; ?>
@@ -503,7 +503,7 @@ $total = $total ?? count($imports);
   
   // Reset tìm kiếm
   document.getElementById('wh-reset-search')?.addEventListener('click', function() {
-      window.location.href = '<?= BASE_URL ?>/public/warehouse/dashboard';
+      window.location.href = '<?= BASE_URL ?>/warehouse/dashboard';
   });
 </script>
 <script src="<?= ASSETS_DIR ?>/js/warehouse.js" defer></script>

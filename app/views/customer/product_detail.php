@@ -39,9 +39,9 @@ include __DIR__ . '/../layouts/header.php';
         <nav>
             <ol class="breadcrumb mb-0">
                 <li class="breadcrumb-item"><a href="<?= BASE_URL ?>/public">Trang chủ</a></li>
-                <li class="breadcrumb-item"><a href="<?= BASE_URL ?>/public/products">Sản phẩm</a></li>
+                <li class="breadcrumb-item"><a href="<?= BASE_URL ?>/products">Sản phẩm</a></li>
                 <?php if (!empty($product['Ten_danh_muc'])): ?>
-                    <li class="breadcrumb-item"><a href="<?= BASE_URL ?>/public/products?category=<?= $product['ID_danh_muc'] ?>"><?= $product['Ten_danh_muc'] ?></a></li>
+                    <li class="breadcrumb-item"><a href="<?= BASE_URL ?>/products?category=<?= $product['ID_danh_muc'] ?>"><?= $product['Ten_danh_muc'] ?></a></li>
                 <?php endif; ?>
                 <li class="breadcrumb-item active"><?= htmlspecialchars($product['Ten']) ?></li>
             </ol>
@@ -213,7 +213,7 @@ include __DIR__ . '/../layouts/header.php';
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="product-card">
                         <div class="product-image">
-                            <a href="<?= BASE_URL ?>/public/products/detail/<?= $item['ID_sp'] ?>">
+                            <a href="<?= BASE_URL ?>/products/detail/<?= $item['ID_sp'] ?>">
                                 <?php if (!empty($item['Hinh_anh'])): ?>
                                     <img src="<?= asset('img/products/' . $item['Hinh_anh']) ?>" alt="<?= htmlspecialchars($item['Ten']) ?>">
                                 <?php else: ?>
@@ -223,7 +223,7 @@ include __DIR__ . '/../layouts/header.php';
                         </div>
                         <div class="product-info">
                             <h5 class="product-name">
-                                <a href="<?= BASE_URL ?>/public/products/detail/<?= $item['ID_sp'] ?>"><?= htmlspecialchars($item['Ten']) ?></a>
+                                <a href="<?= BASE_URL ?>/products/detail/<?= $item['ID_sp'] ?>"><?= htmlspecialchars($item['Ten']) ?></a>
                             </h5>
                             <div class="product-price">
                                 <span class="price-current"><?= number_format($item['Gia_tien'], 0, ',', '.') ?>đ</span>
@@ -265,7 +265,7 @@ function buyNow(productId, quantity) {
     // Tạo form và submit
     const form = document.createElement('form');
     form.method = 'POST';
-    form.action = '<?= BASE_URL ?>/public/cart/buy-now';
+    form.action = '<?= BASE_URL ?>/cart/buy-now';
     
     // Thêm product_id
     const productIdInput = document.createElement('input');

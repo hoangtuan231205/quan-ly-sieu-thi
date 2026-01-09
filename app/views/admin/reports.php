@@ -22,7 +22,7 @@
 <div class="row g-4 mb-4">
     <!-- Revenue Report -->
     <div class="col-md-6 col-lg-4">
-        <div class="admin-card" style="cursor: pointer;" onclick="window.location.href='<?= BASE_URL ?>/public/admin/report-profit'">
+        <div class="admin-card" style="cursor: pointer;" onclick="window.location.href='<?= BASE_URL ?>/admin/report-profit'">
             <div class="admin-card-body" style="text-align: center; padding: 40px 30px;">
                 <div style="width: 80px; height: 80px; border-radius: 20px; background: rgba(123, 192, 67, 0.15); display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
                     <i class="fas fa-chart-line" style="font-size: 36px; color: var(--admin-primary, #7BC043);"></i>
@@ -35,7 +35,7 @@
     
     <!-- Expiry Report -->
     <div class="col-md-6 col-lg-4">
-        <div class="admin-card" style="cursor: pointer;" onclick="window.location.href='<?= BASE_URL ?>/public/admin/report-expiry'">
+        <div class="admin-card" style="cursor: pointer;" onclick="window.location.href='<?= BASE_URL ?>/admin/report-expiry'">
             <div class="admin-card-body" style="text-align: center; padding: 40px 30px;">
                 <div style="width: 80px; height: 80px; border-radius: 20px; background: rgba(239, 68, 68, 0.15); display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
                     <i class="fas fa-clock" style="font-size: 36px; color: #ef4444;"></i>
@@ -48,7 +48,7 @@
     
     <!-- Top Products Report -->
     <div class="col-md-6 col-lg-4">
-        <div class="admin-card" style="cursor: pointer;" onclick="window.location.href='<?= BASE_URL ?>/public/admin/report-top-products'">
+        <div class="admin-card" style="cursor: pointer;" onclick="window.location.href='<?= BASE_URL ?>/admin/report-top-products'">
             <div class="admin-card-body" style="text-align: center; padding: 40px 30px;">
                 <div style="width: 80px; height: 80px; border-radius: 20px; background: rgba(59, 130, 246, 0.15); display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
                     <i class="fas fa-star" style="font-size: 36px; color: #3b82f6;"></i>
@@ -61,7 +61,7 @@
     
     <!-- Orders Report -->
     <div class="col-md-6 col-lg-4">
-        <div class="admin-card" style="cursor: pointer;" onclick="window.location.href='<?= BASE_URL ?>/public/admin/orders'">
+        <div class="admin-card" style="cursor: pointer;" onclick="window.location.href='<?= BASE_URL ?>/admin/orders'">
             <div class="admin-card-body" style="text-align: center; padding: 40px 30px;">
                 <div style="width: 80px; height: 80px; border-radius: 20px; background: rgba(139, 92, 246, 0.15); display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
                     <i class="fas fa-shopping-cart" style="font-size: 36px; color: #8b5cf6;"></i>
@@ -74,7 +74,7 @@
     
     <!-- Disposal Report -->
     <div class="col-md-6 col-lg-4">
-        <div class="admin-card" style="cursor: pointer;" onclick="window.location.href='<?= BASE_URL ?>/public/admin/disposals'">
+        <div class="admin-card" style="cursor: pointer;" onclick="window.location.href='<?= BASE_URL ?>/admin/disposals'">
             <div class="admin-card-body" style="text-align: center; padding: 40px 30px;">
                 <div style="width: 80px; height: 80px; border-radius: 20px; background: rgba(245, 158, 11, 0.15); display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
                     <i class="fas fa-trash-alt" style="font-size: 36px; color: #f59e0b;"></i>
@@ -87,7 +87,7 @@
     
     <!-- Inventory Report -->
     <div class="col-md-6 col-lg-4">
-        <div class="admin-card" style="cursor: pointer;" onclick="window.location.href='<?= BASE_URL ?>/public/admin/products?filter=low_stock'">
+        <div class="admin-card" style="cursor: pointer;" onclick="window.location.href='<?= BASE_URL ?>/admin/products?filter=low_stock'">
             <div class="admin-card-body" style="text-align: center; padding: 40px 30px;">
                 <div style="width: 80px; height: 80px; border-radius: 20px; background: rgba(16, 185, 129, 0.15); display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
                     <i class="fas fa-warehouse" style="font-size: 36px; color: #10b981;"></i>

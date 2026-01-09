@@ -39,11 +39,11 @@
                     <div class="footer-widget">
                         <h5 class="widget-title">Danh Mục</h5>
                         <ul class="footer-links">
-                            <li><a href="<?= BASE_URL ?>/public/products?category=1"><i class="fas fa-chevron-right me-2"></i>Sữa các loại</a></li>
-                            <li><a href="<?= BASE_URL ?>/public/products?category=5"><i class="fas fa-chevron-right me-2"></i>Rau - Củ - Trái Cây</a></li>
-                            <li><a href="<?= BASE_URL ?>/public/products?category=17"><i class="fas fa-chevron-right me-2"></i>Thịt - Hải Sản</a></li>
-                            <li><a href="<?= BASE_URL ?>/public/products?category=20"><i class="fas fa-chevron-right me-2"></i>Đồ Ăn</a></li>
-                            <li><a href="<?= BASE_URL ?>/public/products?category=26"><i class="fas fa-chevron-right me-2"></i>Đồ Uống</a></li>
+                            <li><a href="<?= BASE_URL ?>/products?category=1"><i class="fas fa-chevron-right me-2"></i>Sữa các loại</a></li>
+                            <li><a href="<?= BASE_URL ?>/products?category=5"><i class="fas fa-chevron-right me-2"></i>Rau - Củ - Trái Cây</a></li>
+                            <li><a href="<?= BASE_URL ?>/products?category=17"><i class="fas fa-chevron-right me-2"></i>Thịt - Hải Sản</a></li>
+                            <li><a href="<?= BASE_URL ?>/products?category=20"><i class="fas fa-chevron-right me-2"></i>Đồ Ăn</a></li>
+                            <li><a href="<?= BASE_URL ?>/products?category=26"><i class="fas fa-chevron-right me-2"></i>Đồ Uống</a></li>
                         </ul>
                     </div>
                 </div>

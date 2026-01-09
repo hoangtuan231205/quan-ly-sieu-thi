@@ -11,7 +11,7 @@
     <div class="admin-modern-container">
         <!-- Breadcrumb -->
         <div class="admin-breadcrumb">
-            <a href="<?= BASE_URL ?>/public/">Trang chủ</a>
+            <a href="<?= BASE_URL ?>/">Trang chủ</a>
             <i class="fas fa-chevron-right" style="font-size: 10px;"></i>
             <span class="current">Cảnh báo hết hạn</span>
         </div>
@@ -27,7 +27,7 @@
             </div>
             <?php if (!empty($expiring_batches)): ?>
             <div class="admin-header-actions">
-                <a href="<?= BASE_URL ?>/public/admin/disposal-add" class="btn-admin-primary" style="background: var(--admin-danger);">
+                <a href="<?= BASE_URL ?>/admin/disposal-add" class="btn-admin-primary" style="background: var(--admin-danger);">
                     <i class="fas fa-trash-alt"></i>
                     <span>Tạo phiếu hủy</span>
                 </a>
@@ -252,7 +252,7 @@
                                     <?php endif; ?>
                                 </div>
                                 <?php if ($level == 'DA_HET_HAN' || $level == 'TRONG_7_NGAY'): ?>
-                                    <a href="<?= BASE_URL ?>/public/admin/disposal-add" class="alert-card-btn">
+                                    <a href="<?= BASE_URL ?>/admin/disposal-add" class="alert-card-btn">
                                         <?= $level == 'DA_HET_HAN' ? 'Hủy' : 'Giảm giá' ?>
                                     </a>
                                 <?php endif; ?>

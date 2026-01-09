@@ -56,10 +56,10 @@ if (!function_exists('isTabActive')) {
 </style>
 
 <div class="section-tabs">
-    <a href="<?= BASE_URL ?>/public/admin/users" class="tab-item <?= isTabActive('users') ?>">
+    <a href="<?= BASE_URL ?>/admin/users" class="tab-item <?= isTabActive('users') ?>">
         <i class="fas fa-users"></i> Người dùng
     </a>
-    <a href="<?= BASE_URL ?>/public/admin/suppliers" class="tab-item <?= isTabActive('suppliers') ?>">
+    <a href="<?= BASE_URL ?>/admin/suppliers" class="tab-item <?= isTabActive('suppliers') ?>">
         <i class="fas fa-building"></i> Nhà cung cấp
     </a>
 </div>

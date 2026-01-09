@@ -432,7 +432,7 @@ $user = Session::get('user');
 
 <!-- Breadcrumb -->
 <div class="breadcrumb-section">
-    <a href="<?= BASE_URL ?>/public/">Trang chủ</a>
+    <a href="<?= BASE_URL ?>/">Trang chủ</a>
     <span>›</span>
     <span>Tài khoản</span>
     <span>›</span>
@@ -445,22 +445,22 @@ $user = Session::get('user');
 
     <!-- Tabs -->
     <div class="order-tabs">
-        <a href="<?= BASE_URL ?>/public/orders" class="order-tab <?= empty($filters['status']) ? 'active' : '' ?>">
+        <a href="<?= BASE_URL ?>/orders" class="order-tab <?= empty($filters['status']) ? 'active' : '' ?>">
             Tất cả
         </a>
-        <a href="<?= BASE_URL ?>/public/orders?status=dang_xu_ly" class="order-tab <?= ($filters['status'] ?? '') == 'dang_xu_ly' ? 'active' : '' ?>">
+        <a href="<?= BASE_URL ?>/orders?status=dang_xu_ly" class="order-tab <?= ($filters['status'] ?? '') == 'dang_xu_ly' ? 'active' : '' ?>">
             Đang xử lý
             <?php if(($status_counts['dang_xu_ly']??0) > 0): ?>
                 <span class="tab-count"><?= $status_counts['dang_xu_ly'] ?></span>
             <?php endif; ?>
         </a>
-        <a href="<?= BASE_URL ?>/public/orders?status=dang_giao" class="order-tab <?= ($filters['status'] ?? '') == 'dang_giao' ? 'active' : '' ?>">
+        <a href="<?= BASE_URL ?>/orders?status=dang_giao" class="order-tab <?= ($filters['status'] ?? '') == 'dang_giao' ? 'active' : '' ?>">
             Đang giao
         </a>
-        <a href="<?= BASE_URL ?>/public/orders?status=da_giao" class="order-tab <?= ($filters['status'] ?? '') == 'da_giao' ? 'active' : '' ?>">
+        <a href="<?= BASE_URL ?>/orders?status=da_giao" class="order-tab <?= ($filters['status'] ?? '') == 'da_giao' ? 'active' : '' ?>">
             Đã giao
         </a>
-        <a href="<?= BASE_URL ?>/public/orders?status=huy" class="order-tab <?= ($filters['status'] ?? '') == 'huy' ? 'active' : '' ?>">
+        <a href="<?= BASE_URL ?>/orders?status=huy" class="order-tab <?= ($filters['status'] ?? '') == 'huy' ? 'active' : '' ?>">
             Trả hàng/Hủy đơn
         </a>
     </div>
@@ -555,7 +555,7 @@ $user = Session::get('user');
                         </button>
                     <?php endif; ?>
                     
-                    <a href="<?= BASE_URL ?>/public/orders/detail/<?= $order['ID_dh'] ?>" class="order-btn btn-detail">
+                    <a href="<?= BASE_URL ?>/orders/detail/<?= $order['ID_dh'] ?>" class="order-btn btn-detail">
                         Chi tiết
                     </a>
                 </div>
@@ -604,7 +604,7 @@ $user = Session::get('user');
             <div class="empty-icon">📦</div>
             <h3 class="empty-title">Chưa có đơn hàng nào</h3>
             <p class="empty-text">Bạn chưa có đơn hàng nào. Hãy khám phá và mua sắm ngay!</p>
-            <a href="<?= BASE_URL ?>/public/products" class="btn-shop">
+            <a href="<?= BASE_URL ?>/products" class="btn-shop">
                 Tiếp tục mua sắm
             </a>
         </div>

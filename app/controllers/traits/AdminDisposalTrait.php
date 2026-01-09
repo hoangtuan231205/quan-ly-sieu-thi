@@ -83,7 +83,7 @@ trait AdminDisposalTrait {
             
             if (empty($items)) {
                 $_SESSION['flash_error'] = 'Vui lòng thêm ít nhất một sản phẩm';
-                redirect(BASE_URL . '/public/admin/disposal-add');
+                redirect(BASE_URL . '/admin/disposal-add');
                 return;
             }
             
@@ -101,10 +101,10 @@ trait AdminDisposalTrait {
                     'Tạo phiếu hủy với ' . count($items) . ' sản phẩm');
                 
                 $_SESSION['flash_success'] = 'Tạo phiếu hủy thành công!';
-                redirect(BASE_URL . '/public/admin/disposals');
+                redirect(BASE_URL . '/admin/disposals');
             } else {
                 $_SESSION['flash_error'] = 'Có lỗi xảy ra khi tạo phiếu hủy';
-                redirect(BASE_URL . '/public/admin/disposal-add');
+                redirect(BASE_URL . '/admin/disposal-add');
             }
             return;
         }
@@ -125,7 +125,7 @@ trait AdminDisposalTrait {
      */
     public function disposalDetail($id = null) {
         if (!$id) {
-            redirect(BASE_URL . '/public/admin/disposals');
+            redirect(BASE_URL . '/admin/disposals');
             return;
         }
         
@@ -134,7 +134,7 @@ trait AdminDisposalTrait {
         
         if (!$disposal) {
             $_SESSION['flash_error'] = 'Không tìm thấy phiếu hủy';
-            redirect(BASE_URL . '/public/admin/disposals');
+            redirect(BASE_URL . '/admin/disposals');
             return;
         }
         

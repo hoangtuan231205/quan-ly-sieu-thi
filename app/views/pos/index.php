@@ -1231,7 +1231,7 @@ document.querySelectorAll('.category-tab').forEach(tab => {
 
 async function filterByCategory(categoryId) {
     try {
-        const res = await fetch(`${BASE_URL}/public/pos/filterByCategory?category_id=${categoryId}`, {
+        const res = await fetch(`${BASE_URL}/pos/filterByCategory?category_id=${categoryId}`, {
             headers: { 'X-Requested-With': 'XMLHttpRequest' }
         });
         const data = await res.json();
@@ -1259,7 +1259,7 @@ document.getElementById('searchInput').addEventListener('input', function() {
 
 async function searchProducts(query) {
     try {
-        const res = await fetch(`${BASE_URL}/public/pos/search?q=${encodeURIComponent(query)}`, {
+        const res = await fetch(`${BASE_URL}/pos/search?q=${encodeURIComponent(query)}`, {
             headers: { 'X-Requested-With': 'XMLHttpRequest' }
         });
         const data = await res.json();
@@ -1315,7 +1315,7 @@ async function addToCart(productId) {
         formData.append('quantity', 1);
         formData.append('csrf_token', CSRF_TOKEN);
         
-        const res = await fetch(`${BASE_URL}/public/pos/addToCart`, {
+        const res = await fetch(`${BASE_URL}/pos/addToCart`, {
             method: 'POST',
             body: formData,
             headers: { 'X-Requested-With': 'XMLHttpRequest' }
@@ -1350,7 +1350,7 @@ async function updateQty(productId, change) {
         formData.append('quantity', newQty);
         formData.append('csrf_token', CSRF_TOKEN);
         
-        const res = await fetch(`${BASE_URL}/public/pos/updateQuantity`, {
+        const res = await fetch(`${BASE_URL}/pos/updateQuantity`, {
             method: 'POST',
             body: formData,
             headers: { 'X-Requested-With': 'XMLHttpRequest' }
@@ -1373,7 +1373,7 @@ async function removeItem(productId) {
         formData.append('product_id', productId);
         formData.append('csrf_token', CSRF_TOKEN);
         
-        const res = await fetch(`${BASE_URL}/public/pos/removeFromCart`, {
+        const res = await fetch(`${BASE_URL}/pos/removeFromCart`, {
             method: 'POST',
             body: formData,
             headers: { 'X-Requested-With': 'XMLHttpRequest' }
@@ -1396,7 +1396,7 @@ async function clearCart() {
         const formData = new FormData();
         formData.append('csrf_token', CSRF_TOKEN);
         
-        const res = await fetch(`${BASE_URL}/public/pos/clearCart`, {
+        const res = await fetch(`${BASE_URL}/pos/clearCart`, {
             method: 'POST',
             body: formData,
             headers: { 'X-Requested-With': 'XMLHttpRequest' }
@@ -1536,7 +1536,7 @@ async function checkout() {
         formData.append('cash_received', cash);
         formData.append('csrf_token', CSRF_TOKEN);
         
-        const res = await fetch(`${BASE_URL}/public/pos/checkout`, {
+        const res = await fetch(`${BASE_URL}/pos/checkout`, {
             method: 'POST',
             body: formData,
             headers: { 'X-Requested-With': 'XMLHttpRequest' }

@@ -7,7 +7,7 @@ class UserController extends Controller {
     public function profile() {
         // Kiểm tra session
         if (!isset($_SESSION['user']['ID'])) {
-            redirect(BASE_URL . '/public/auth/login');
+            redirect(BASE_URL . '/auth/login');
             exit;
         }
         
@@ -19,7 +19,7 @@ class UserController extends Controller {
         $userDb = $userModel->findById($userId);
         
         if (!$userDb) {
-            redirect(BASE_URL . '/public/auth/login');
+            redirect(BASE_URL . '/auth/login');
             exit;
         }
         
@@ -36,7 +36,7 @@ class UserController extends Controller {
     
     public function updateProfile() {
         if (!isset($_SESSION['user']['ID'])) {
-            redirect(BASE_URL . '/public/auth/login');
+            redirect(BASE_URL . '/auth/login');
             exit;
         }
         $userId = $_SESSION['user']['ID'];
@@ -53,12 +53,12 @@ class UserController extends Controller {
         $_SESSION['user']['Email'] = $data['Email'];
         $_SESSION['user']['Sdt'] = $data['Sdt'];
         $_SESSION['user']['Dia_chi'] = $data['Dia_chi'];
-        redirect(BASE_URL . '/public/user/profile');
+        redirect(BASE_URL . '/user/profile');
     }
     
     public function updateAvatar() {
         if (!isset($_SESSION['user']['ID'])) {
-            redirect(BASE_URL . '/public/auth/login');
+            redirect(BASE_URL . '/auth/login');
             exit;
         }
         
@@ -70,13 +70,13 @@ class UserController extends Controller {
             
             if (!in_array($file['type'], $allowedTypes)) {
                 $_SESSION['error'] = 'Chỉ chấp nhận file ảnh (JPG, PNG, GIF)';
-                redirect(BASE_URL . '/public/user/profile');
+                redirect(BASE_URL . '/user/profile');
                 exit;
             }
             
             if ($file['size'] > 2 * 1024 * 1024) { // 2MB
                 $_SESSION['error'] = 'Kích thước ảnh tối đa 2MB';
-                redirect(BASE_URL . '/public/user/profile');
+                redirect(BASE_URL . '/user/profile');
                 exit;
             }
             
@@ -104,6 +104,6 @@ class UserController extends Controller {
             }
         }
         
-        redirect(BASE_URL . '/public/user/profile');
+        redirect(BASE_URL . '/user/profile');
     }
 }

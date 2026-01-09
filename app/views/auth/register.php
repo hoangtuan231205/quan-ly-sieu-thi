@@ -41,7 +41,7 @@ include __DIR__ . '/../layouts/header.php';
                     <?php endif; ?>
 
                     <!-- Form -->
-                    <form method="POST" action="<?= BASE_URL ?>/public/auth/registerProcess" class="auth-form">
+                    <form method="POST" action="<?= BASE_URL ?>/auth/registerProcess" class="auth-form">
                         <!-- Name Input -->
                         <div class="form-group mb-3">
                             <label for="name" class="form-label">Họ và tên</label>
@@ -170,7 +170,7 @@ include __DIR__ . '/../layouts/header.php';
                     <!-- Login Link -->
                     <div class="auth-footer">
                         <p>Đã có tài khoản? 
-                            <a href="<?= BASE_URL ?>/public/auth/login" class="register-link">
+                            <a href="<?= BASE_URL ?>/auth/login" class="register-link">
                                 Đăng nhập
                             </a>
                         </p>

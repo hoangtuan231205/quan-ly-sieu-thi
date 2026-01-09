@@ -471,7 +471,7 @@ include __DIR__ . '/../layouts/header.php';
 
 <!-- Breadcrumb -->
 <div class="breadcrumb-section">
-    <a href="<?= BASE_URL ?>/public/">Trang chủ</a>
+    <a href="<?= BASE_URL ?>/">Trang chủ</a>
     <span>›</span>
     <span>Tài khoản của tôi</span>
 </div>
@@ -482,7 +482,7 @@ include __DIR__ . '/../layouts/header.php';
         <aside class="profile-sidebar">
             <div class="profile-avatar-section">
                 <!-- Avatar Upload Form (auto-submit on file select) -->
-                <form id="avatarForm" method="post" action="<?= BASE_URL ?>/public/user/updateAvatar" enctype="multipart/form-data">
+                <form id="avatarForm" method="post" action="<?= BASE_URL ?>/user/updateAvatar" enctype="multipart/form-data">
                     <input type="hidden" name="csrf_token" value="<?= Session::getCsrfToken() ?>">
                     <input type="file" id="avatarInput" name="avatar" accept="image/jpeg,image/png,image/jpg" style="display: none;">
                     
@@ -527,13 +527,13 @@ include __DIR__ . '/../layouts/header.php';
                     </a>
                 </li>
                 <li>
-                    <a href="<?= BASE_URL ?>/public/orders" class="profile-menu-item">
+                    <a href="<?= BASE_URL ?>/orders" class="profile-menu-item">
                         <i class="fas fa-shopping-bag"></i>
                         <span>Đơn hàng của tôi</span>
                     </a>
                 </li>
                 <li>
-                    <a href="<?= BASE_URL ?>/public/auth/logout" class="profile-menu-item" style="color: #ef4444;">
+                    <a href="<?= BASE_URL ?>/auth/logout" class="profile-menu-item" style="color: #ef4444;">
                         <i class="fas fa-sign-out-alt"></i>
                         <span>Đăng xuất</span>
                     </a>
@@ -619,7 +619,7 @@ include __DIR__ . '/../layouts/header.php';
                 <h1 class="profile-page-title">Bảo mật & Mật khẩu</h1>
                 <p class="profile-page-subtitle">Cập nhật mật khẩu để bảo vệ tài khoản của bạn</p>
 
-                <form id="passwordForm" method="post" action="<?= BASE_URL ?>/public/user/changePassword">
+                <form id="passwordForm" method="post" action="<?= BASE_URL ?>/user/changePassword">
                     <input type="hidden" name="csrf_token" value="<?= Session::getCsrfToken() ?>">
                     
                     <div class="profile-form-grid">

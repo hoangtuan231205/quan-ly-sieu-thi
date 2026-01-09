@@ -620,7 +620,7 @@ function getStatusLabel($status) {
 <div class="admin-page-wrapper">
     <!-- Breadcrumb -->
     <div class="breadcrumb-section">
-        <a href="<?= BASE_URL ?>/public/">Trang chủ</a>
+        <a href="<?= BASE_URL ?>/">Trang chủ</a>
         <span>›</span>
         <span>Quản lý giao hàng</span>
     </div>
@@ -637,7 +637,7 @@ function getStatusLabel($status) {
                     <i class="fas fa-print"></i>
                     <span>In danh sách</span>
                 </button>
-                <a href="<?= BASE_URL ?>/public/admin/exportOrders" class="btn-action-primary">
+                <a href="<?= BASE_URL ?>/admin/exportOrders" class="btn-action-primary">
                     <i class="fas fa-download"></i>
                     <span>Xuất báo cáo</span>
                 </a>
@@ -753,7 +753,7 @@ function getStatusLabel($status) {
                             
                             <!-- Order ID & Time -->
                             <div class="order-id-custom">
-                                <div class="order-code-custom" onclick="window.location.href='<?= BASE_URL ?>/public/admin/orderDetail/<?= $order['ID_dh'] ?>'">
+                                <div class="order-code-custom" onclick="window.location.href='<?= BASE_URL ?>/admin/orderDetail/<?= $order['ID_dh'] ?>'">
                                     DH<?= date('Ymd', strtotime($order['Ngay_dat'])) ?><?= str_pad($order['ID_dh'], 2, '0', STR_PAD_LEFT) ?>
                                 </div>
                                 <div class="order-time-custom">
@@ -788,7 +788,7 @@ function getStatusLabel($status) {
                                  $imgName = $order['Hinh_anh_dai_dien'] ?? 'no-image.png';
                                 $firstItemImg = asset('img/products/' . $imgName);
                                 ?>
-                                <a href="<?= BASE_URL ?>/public/admin/orderDetail/<?= $order['ID_dh'] ?>" class="product-details-custom" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                                <a href="<?= BASE_URL ?>/admin/orderDetail/<?= $order['ID_dh'] ?>" class="product-details-custom" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 10px; cursor: pointer;">
                                     <img src="<?= $firstItemImg ?>" alt="Product" style="width: 40px; height: 40px; border-radius: 4px; object-fit: cover;" onerror="this.src='<?= asset('assets/img/products/no-image.png') ?>'">
                                     <div>
                                         <div class="product-name-custom">Sản phẩm (<?= $itemCount ?>)</div>
@@ -815,7 +815,7 @@ function getStatusLabel($status) {
                             <!-- Actions -->
                             <div class="actions-custom">
                                 <!-- View Detail Button -->
-                                <a href="<?= BASE_URL ?>/public/admin/orderDetail/<?= $order['ID_dh'] ?>" class="action-btn-custom" title="Xem chi tiết">
+                                <a href="<?= BASE_URL ?>/admin/orderDetail/<?= $order['ID_dh'] ?>" class="action-btn-custom" title="Xem chi tiết">
                                     <i class="fas fa-eye"></i>
                                 </a>
                             </div>
@@ -1104,7 +1104,7 @@ input[type="radio"] {
             // Assuming AdminController expects standard POST fields
             // URL: /public/admin/orderUpdateStatus
             
-            fetch('<?= BASE_URL ?>/public/admin/orderUpdateStatus', {
+            fetch('<?= BASE_URL ?>/admin/orderUpdateStatus', {
                 method: 'POST',
                 headers: {
                     'X-Requested-With': 'XMLHttpRequest'
