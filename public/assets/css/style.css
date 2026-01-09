@@ -1,0 +1,1604 @@
+/* Biến toàn cục đã chuyển sang refactored-ui.css */
+/* =============================================================================
+   2. TOP BAR - Thanh thông tin trên cùng
+   ============================================================================= */
+
+.top-bar {
+    background-color: var(--color-woodland);
+    color: var(--color-white);
+    font-size: 14px;
+    padding: 10px 0;
+}
+
+.top-bar i {
+    color: var(--color-tea-green);
+}
+
+.top-bar strong {
+    font-weight: 600;
+    color: var(--color-tea-green);
+}
+
+/* =============================================================================
+   3. HEADER CHÍNH - Logo, Tìm kiếm, Hành động
+   ============================================================================= */
+
+.main-header {
+    background-color: var(--color-white);
+    box-shadow: var(--shadow-sm);
+    /* position: sticky; - ĐÃ XÓA: Header cuộn tự nhiên */
+    /* top: 0; */
+    z-index: 999;
+}
+
+/* Logo */
+.logo-link {
+    text-decoration: none;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-icon {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, var(--color-woodland), var(--color-tea-green));
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 20px;
+    color: var(--color-white);
+    box-shadow: var(--shadow-md);
+    transition: var(--transition-normal);
+}
+
+.logo-icon:hover {
+    transform: rotate(-5deg) scale(1.05);
+}
+
+.logo-text {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--color-woodland);
+    letter-spacing: -0.5px;
+}
+
+/* Search Form */
+.search-wrapper {
+    position: relative;
+    max-width: 600px;
+    width: 100%;
+}
+
+.search-input {
+    width: 100%;
+    height: 48px;
+    padding: 0 60px 0 20px;
+    border: 2px solid var(--color-tea-green);
+    border-radius: var(--radius-xl);
+    font-size: 15px;
+    transition: var(--transition-normal);
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: var(--color-woodland);
+    box-shadow: 0 0 0 4px rgba(73, 108, 44, 0.1);
+}
+
+.search-btn {
+    position: absolute;
+    right: 4px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background-color: var(--color-woodland);
+    border: none;
+    border-radius: var(--radius-full);
+    color: var(--color-white);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-normal);
+}
+
+.search-btn:hover {
+    background-color: var(--color-port-gore);
+    transform: translateY(-50%) scale(1.05);
+}
+
+/* Header Actions */
+.header-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 20px;
+}
+
+.action-btn {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-full);
+    background-color: var(--color-gray-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-port-gore);
+    text-decoration: none;
+    transition: var(--transition-normal);
+    font-size: 18px;
+}
+
+/* Product Card Actions Standard */
+.product-actions-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.btn-card {
+    height: 38px;
+    padding: 0 8px;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 6px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    width: 100%;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.action-btn:hover {
+    background-color: var(--color-woodland);
+    color: var(--color-white);
+    transform: translateY(-2px);
+}
+
+.cart-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    width: 20px;
+    height: 20px;
+    background-color: var(--color-port-gore);
+    color: var(--color-white);
+    border-radius: var(--radius-full);
+    font-size: 11px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    /* Prevent automatic animations - override Bootstrap with !important */
+    transition: none !important;
+    animation: none !important;
+}
+
+/* Animation class to be added via JavaScript when cart updates */
+.cart-badge.cart-updated {
+    animation: cartBadgePulse 0.5s ease !important;
+}
+
+@keyframes cartBadgePulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.3);
+    }
+}
+
+/* User Menu */
+.user-menu {
+    position: relative;
+}
+
+.user-menu .action-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: auto;
+    padding: 8px 16px;
+    font-size: 16px;
+}
+
+.user-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-port-gore);
+}
+
+.user-menu .action-btn:hover .user-name {
+    color: var(--color-white);
+}
+
+.user-menu .dropdown-menu {
+    min-width: 220px;
+    border: none;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    border-radius: var(--radius-lg);
+    margin-top: 10px !important;
+    padding: 8px 0;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    z-index: 99999;
+    display: none;
+    /* Mặc định ẩn */
+}
+
+/* Container cần relative để anchor dropdown */
+.user-dropdown,
+.user-menu.dropdown {
+    position: relative;
+    padding-bottom: 10px;
+    /* Tăng vùng hover */
+    margin-bottom: -10px;
+    /* Bù lại layout */
+}
+
+/* Cầu nối vô hình giúp chuột không bị hụt khi di chuyển từ nút xuống menu */
+.user-dropdown::after,
+.user-menu.dropdown::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 15px;
+    background: transparent;
+    z-index: 99998;
+}
+
+/* Hover để mở dropdown - override Bootstrap */
+.user-dropdown:hover>.dropdown-menu,
+.user-dropdown .dropdown-menu:hover,
+.user-menu.dropdown:hover>.dropdown-menu,
+.user-menu.dropdown .dropdown-menu:hover {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.user-menu .dropdown-item {
+    color: var(--color-port-gore);
+    font-size: 14px;
+    padding: 12px 16px;
+    transition: var(--transition-normal);
+    display: flex;
+    align-items: center;
+}
+
+.user-menu .dropdown-item:hover {
+    background-color: var(--color-willow-brook);
+    color: var(--color-woodland);
+}
+
+.user-menu .dropdown-item i {
+    width: 20px;
+}
+
+/* Auth Buttons */
+.auth-buttons {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-sm);
+}
+
+/* Hamburger Button - [ĐÃ XÓA - CHỈ DESKTOP] */
+
+
+/* =============================================================================
+   4. NAVIGATION MENU - Menu danh mục với dropdown
+   ============================================================================= */
+
+.main-nav {
+    background-color: var(--color-woodland);
+    box-shadow: var(--shadow-md);
+    /* position: sticky; - REMOVED: User wants natural scroll */
+    /* top: 78px; */
+    /* Chiều cao của main-header */
+    z-index: 998;
+}
+
+.nav-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0;
+}
+
+/* All Categories Button (Desktop) */
+.all-categories-btn {
+    flex-shrink: 0;
+}
+
+.category-toggle {
+    height: 50px;
+    padding: 0 24px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: var(--color-white);
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-normal);
+    white-space: nowrap;
+}
+
+.category-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Navigation Menu */
+.nav-menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    padding: 0 20px;
+    color: var(--color-white);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 15px;
+    transition: var(--transition-fast);
+    white-space: nowrap;
+}
+
+.nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: var(--color-tea-green);
+}
+
+.nav-link i {
+    font-size: 12px;
+    transition: var(--transition-fast);
+}
+
+/* Dropdown Menu */
+.has-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 240px;
+    background-color: var(--color-white);
+    box-shadow: var(--shadow-lg);
+    border-radius: 0 0 var(--radius-md) var(--radius-md);
+    padding: 8px 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: var(--transition-normal);
+    z-index: 1000;
+}
+
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    color: var(--color-port-gore);
+    text-decoration: none;
+    font-size: 14px;
+    transition: var(--transition-fast);
+}
+
+.dropdown-item:hover {
+    background-color: var(--color-willow-brook);
+    color: var(--color-woodland);
+    padding-left: 24px;
+}
+
+.dropdown-item i {
+    color: var(--color-woodland);
+    font-size: 14px;
+    width: 20px;
+}
+
+/* Hover Animation cho Chevron */
+.has-dropdown:hover .nav-link i {
+    transform: rotate(180deg);
+}
+
+/* =============================================================================
+   5. MOBILE MENU - [ĐÃ XÓA - CHỈ DESKTOP]
+   ============================================================================= */
+
+
+/* =============================================================================
+   6. MAIN CONTENT
+   ============================================================================= */
+
+.main-content {
+    min-height: calc(100vh - 400px);
+    padding: 0;
+}
+
+/* =============================================================================
+   7. FOOTER
+   ============================================================================= */
+
+.main-footer {
+    background-color: var(--color-port-gore);
+    color: var(--color-white);
+    margin-top: 60px;
+}
+
+.footer-top {
+    padding: 60px 0 40px;
+}
+
+.footer-widget {
+    margin-bottom: 30px;
+}
+
+.widget-title {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--color-tea-green);
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.widget-title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 3px;
+    background: linear-gradient(to right, var(--color-tea-green), transparent);
+    border-radius: 2px;
+}
+
+.footer-desc {
+    font-size: 14px;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 20px;
+}
+
+.social-links {
+    display: flex;
+    gap: 12px;
+}
+
+.social-links a {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-full);
+    background-color: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-white);
+    text-decoration: none;
+    transition: var(--transition-normal);
+}
+
+.social-links a:hover {
+    background-color: var(--color-woodland);
+    transform: translateY(-3px);
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    font-size: 14px;
+    transition: var(--transition-fast);
+    display: inline-flex;
+    align-items: center;
+}
+
+.footer-links a:hover {
+    color: var(--color-tea-green);
+    padding-left: 5px;
+}
+
+.footer-contact {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-contact li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 16px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.footer-contact i {
+    color: var(--color-tea-green);
+    font-size: 16px;
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+.footer-bottom {
+    padding: 24px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.copyright {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.payment-methods {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 14px;
+}
+
+.payment-icon {
+    height: 24px;
+    width: auto;
+    opacity: 0.8;
+    transition: var(--transition-fast);
+}
+
+.payment-icon:hover {
+    opacity: 1;
+    transform: translateY(-2px);
+}
+
+/* =============================================================================
+   8. SCROLL TO TOP BUTTON
+   ============================================================================= */
+
+.scroll-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--color-woodland), var(--color-tea-green));
+    border: none;
+    border-radius: var(--radius-full);
+    color: var(--color-white);
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: var(--shadow-lg);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: var(--transition-normal);
+    z-index: 1000;
+}
+
+.scroll-to-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.scroll-to-top:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-xl);
+}
+
+/* =============================================================================
+   9. RESPONSIVE - [REMOVED - Desktop Only Development]
+   ============================================================================= */
+
+/* =============================================================================
+   19. BREADCRUMB
+   ============================================================================= */
+
+.breadcrumb-section {
+    padding: 20px 0;
+    background-color: var(--color-gray-light);
+}
+
+.breadcrumb {
+    margin: 0;
+    padding: 0;
+    background: none;
+}
+
+.breadcrumb-item {
+    font-size: 14px;
+}
+
+.breadcrumb-item a {
+    color: var(--color-woodland);
+    text-decoration: none;
+    transition: var(--transition-fast);
+}
+
+.breadcrumb-item a:hover {
+    color: var(--color-port-gore);
+}
+
+.breadcrumb-item.active {
+    color: var(--color-gray-dark);
+}
+
+/* =============================================================================
+   20. PRODUCTS LISTING PAGE
+   ============================================================================= */
+
+.products-listing {
+    padding: 60px 0;
+}
+
+/* Filter Sidebar */
+.filter-sidebar {
+    background-color: var(--color-white);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    box-shadow: var(--shadow-sm);
+    /* position: sticky; - REMOVED: User wants natural scroll */
+    /* top: 100px; */
+}
+
+.filter-widget {
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid var(--color-gray-light);
+}
+
+.filter-widget:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.filter-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--color-port-gore);
+    margin-bottom: 16px;
+}
+
+/* Category Filter */
+.category-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.category-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.category-link {
+    padding: 10px 12px;
+    color: var(--color-port-gore);
+    text-decoration: none;
+    border-radius: var(--radius-md);
+    font-weight: 500;
+    transition: var(--transition-fast);
+}
+
+.category-link:hover {
+    background-color: var(--color-willow-brook);
+    color: var(--color-woodland);
+}
+
+.category-link.active {
+    background-color: var(--color-woodland);
+    color: var(--color-white);
+}
+
+.sub-categories {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-top: 8px;
+    margin-left: 16px;
+}
+
+.sub-category-link {
+    padding: 8px 12px;
+    color: var(--color-blackcurrant);
+    text-decoration: none;
+    border-radius: var(--radius-md);
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: var(--transition-fast);
+}
+
+.sub-category-link:hover {
+    background-color: var(--color-willow-brook);
+    color: var(--color-woodland);
+}
+
+.sub-category-link.active {
+    background-color: var(--color-tea-green);
+    color: var(--color-woodland);
+    font-weight: 600;
+}
+
+.sub-category-link .count {
+    font-size: 12px;
+    color: var(--color-gray);
+}
+
+/* Price Filter */
+.price-inputs .input-group-text {
+    background-color: var(--color-willow-brook);
+    border-color: var(--color-tea-green);
+    color: var(--color-woodland);
+}
+
+.quick-prices {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.btn-outline-woodland {
+    border: 2px solid var(--color-woodland);
+    color: var(--color-woodland);
+    background: transparent;
+}
+
+.btn-outline-woodland:hover {
+    background-color: var(--color-woodland);
+    color: var(--color-white);
+}
+
+/* Products Toolbar */
+.products-toolbar {
+    background-color: var(--color-white);
+    border-radius: var(--radius-lg);
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: var(--shadow-sm);
+}
+
+.result-count {
+    margin: 0;
+    color: var(--color-blackcurrant);
+}
+
+.sort-dropdown .form-select {
+    border: 2px solid var(--color-tea-green);
+    border-radius: var(--radius-md);
+    padding: 8px 16px;
+}
+
+.sort-dropdown .form-select:focus {
+    border-color: var(--color-woodland);
+    box-shadow: 0 0 0 3px rgba(73, 108, 44, 0.1);
+}
+
+.product-category {
+    font-size: 12px;
+    color: var(--color-gray);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+}
+
+.product-meta {
+    font-size: 13px;
+    color: var(--color-gray-dark);
+    margin-bottom: 12px;
+}
+
+.product-unit {
+    font-weight: 600;
+}
+
+.product-origin {
+    color: var(--color-gray);
+}
+
+/* Badge Variations */
+.product-badge.out-of-stock {
+    background-color: var(--color-gray-dark);
+}
+
+.product-badge.low-stock {
+    background-color: var(--color-warning);
+}
+
+/* No Products Found */
+.no-products-found {
+    padding: 80px 0;
+}
+
+.empty-state {
+    text-align: center;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.empty-state i {
+    font-size: 80px;
+    color: var(--color-gray);
+    margin-bottom: 24px;
+}
+
+.empty-state h3 {
+    font-size: 24px;
+    color: var(--color-port-gore);
+    margin-bottom: 12px;
+}
+
+.empty-state p {
+    color: var(--color-gray-dark);
+    margin-bottom: 24px;
+}
+
+/* Pagination */
+.pagination-nav {
+    margin-top: 40px;
+}
+
+.pagination {
+    gap: 8px;
+}
+
+.page-link {
+    border: 2px solid var(--color-tea-green);
+    color: var(--color-woodland);
+    padding: 10px 16px;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    transition: var(--transition-normal);
+}
+
+.page-link:hover {
+    background-color: var(--color-woodland);
+    border-color: var(--color-woodland);
+    color: var(--color-white);
+}
+
+.page-item.active .page-link {
+    background-color: var(--color-woodland);
+    border-color: var(--color-woodland);
+    color: var(--color-white);
+}
+
+/* =============================================================================
+   21. RESPONSIVE - Products Page [REMOVED - Desktop Only Development]
+   ============================================================================= */
+
+/* =============================================================================
+   10. ANIMATIONS
+   ============================================================================= */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease forwards;
+}
+
+.slide-in-right {
+    animation: slideInRight 0.6s ease forwards;
+}
+
+/* =============================================================================
+   11. NOTIFICATION - Thông báo Toast
+   ============================================================================= */
+
+.notification {
+    position: fixed;
+    top: 100px;
+    right: -400px;
+    min-width: 300px;
+    max-width: 400px;
+    background-color: var(--color-white);
+    box-shadow: var(--shadow-xl);
+    border-radius: var(--radius-md);
+    padding: 16px 20px;
+    z-index: 9999;
+    transition: var(--transition-normal);
+}
+
+.notification.show {
+    right: 20px;
+}
+
+.notification-content {
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.notification-success {
+    border-left: 4px solid var(--color-success);
+    color: var(--color-success);
+}
+
+.notification-error {
+    border-left: 4px solid var(--color-danger);
+    color: var(--color-danger);
+}
+
+.notification-warning {
+    border-left: 4px solid var(--color-warning);
+    color: var(--color-warning);
+}
+
+.notification-info {
+    border-left: 4px solid var(--color-info);
+    color: var(--color-info);
+}
+
+/* =============================================================================
+   12. LOADING SPINNER - Hiệu ứng loading
+   ============================================================================= */
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(73, 108, 44, 0.2);
+    border-top-color: var(--color-woodland);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+/* =============================================================================
+   13. UTILITIES - Các class tiện ích
+   ============================================================================= */
+
+.text-woodland {
+    color: var(--color-woodland) !important;
+}
+
+.text-tea-green {
+    color: var(--color-tea-green) !important;
+}
+
+.text-port-gore {
+    color: var(--color-port-gore) !important;
+}
+
+.bg-woodland {
+    background-color: var(--color-woodland) !important;
+}
+
+.bg-willow-brook {
+    background-color: var(--color-willow-brook) !important;
+}
+
+.bg-tea-green {
+    background-color: var(--color-tea-green) !important;
+}
+
+.btn-woodland {
+    background-color: var(--color-woodland);
+    color: var(--color-white);
+    border: none;
+    padding: 12px 24px;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    transition: var(--transition-normal);
+}
+
+.btn-woodland:hover {
+    background-color: var(--color-port-gore);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.shadow-custom {
+    box-shadow: var(--shadow-md);
+}
+
+/* Hidden classes */
+.hidden {
+    display: none !important;
+}
+
+.invisible {
+    visibility: hidden !important;
+}
+
+/* =============================================================================
+   14. HERO SLIDER - Banner chính trang chủ
+   ============================================================================= */
+
+.hero-slider {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 60px;
+}
+
+.hero-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+    display: flex;
+    align-items: center;
+}
+
+.hero-slide.active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 1;
+}
+
+.hero-content {
+    animation: fadeInLeft 0.8s ease forwards;
+    padding-left: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.hero-badge {
+    display: inline-block;
+    padding: 8px 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: var(--radius-xl);
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--color-woodland);
+    margin-bottom: 20px;
+}
+
+.hero-title {
+    font-size: 52px;
+    font-weight: 600;
+    color: var(--color-port-gore);
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.hero-title .highlight::after {
+    content: '';
+    position: absolute;
+    bottom: 8px;
+    left: 0;
+    width: 100%;
+    height: 14px;
+    background-color: var(--color-tea-green);
+    opacity: 0.5;
+    z-index: -1;
+}
+
+.hero-desc {
+    font-size: 15px;
+    color: var(--color-blackcurrant);
+    margin-bottom: 25px;
+    max-width: 400px;
+}
+
+.btn-hero {
+    display: inline-flex;
+    align-items: center;
+    padding: 12px 30px;
+    background: linear-gradient(135deg, var(--color-woodland), var(--color-port-gore));
+    color: var(--color-white);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
+    transition: var(--transition-normal);
+}
+
+.btn-hero:hover {
+    transform: translateY(-2px) scale(1.00);
+    box-shadow: var(--shadow-xl);
+}
+
+.hero-image {
+    text-align: center;
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    animation: floating 3s ease-in-out infinite;
+}
+
+/* Full Image Hero Style */
+.slider-container {
+    position: relative;
+    width: 100%;
+    height: 480px;
+    background-color: #f5f5f5;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin: 20px 0;
+    box-shadow: var(--shadow-md);
+}
+
+.hero-slide-full {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+    display: flex;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.hero-slide-full.active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 1;
+}
+
+.hero-slide-full::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(41, 29, 81, 0.4), rgba(41, 29, 81, 0.6));
+    z-index: 1;
+}
+
+.hero-slide-full .container {
+    position: relative;
+    z-index: 2;
+    text-align: left;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.hero-slide-full .hero-content {
+    max-width: 600px;
+    margin-left: 0;
+    padding-left: 100px;
+    animation: fadeInDown 0.8s ease forwards;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.hero-slide-full .hero-title {
+    color: #ffffff;
+    font-size: 50px !important;
+    /* Increased by 2px - with !important */
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    line-height: 1.2;
+}
+
+.hero-slide-full .hero-desc {
+    color: #f8f9fa;
+    margin: 0 0 24px 0;
+    font-size: 18px !important;
+    /* Increased by 2px - with !important */
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    line-height: 1.5;
+}
+
+.hero-slide-full .hero-badge {
+    background-color: var(--color-woodland);
+    color: #fff;
+}
+
+/* Smaller button for hero slider */
+.hero-slide-full .btn {
+    padding: 10px 24px !important;
+    /* Smaller than btn-lg */
+    font-size: 14px !important;
+    font-weight: 600;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes floating {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Slider Navigation */
+.slider-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background-color: var(--color-white);
+    border: none;
+    border-radius: var(--radius-full);
+    color: var(--color-woodland);
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition-normal);
+    z-index: 2;
+}
+
+.slider-nav:hover {
+    background-color: var(--color-woodland);
+    color: var(--color-white);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.slider-nav.prev {
+    left: 20px;
+}
+
+.slider-nav.next {
+    right: 20px;
+}
+
+/* Slider Dots */
+.slider-dots {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    z-index: 2;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: var(--radius-full);
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: var(--transition-normal);
+}
+
+.dot:hover,
+.dot.active {
+    background-color: var(--color-white);
+    transform: scale(1.3);
+}
+
+/* =============================================================================
+   15. FEATURES SECTION - Đặc điểm nổi bật
+   ============================================================================= */
+
+.features-section {
+    padding: 40px 0;
+    margin-bottom: 60px;
+}
+
+.feature-card {
+    text-align: center;
+    padding: 30px 20px;
+    background-color: var(--color-white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-normal);
+    height: 100%;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.feature-icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 20px;
+    background: linear-gradient(135deg, var(--color-tea-green), var(--color-surf));
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-woodland);
+    font-size: 28px;
+}
+
+.feature-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--color-port-gore);
+    margin-bottom: 8px;
+}
+
+.feature-desc {
+    font-size: 14px;
+    color: var(--color-gray-dark);
+    margin: 0;
+}
+
+/* =============================================================================
+   16. PRODUCTS SECTION - Sản phẩm bán chạy
+   ============================================================================= */
+
+.products-section {
+    padding: 60px 0;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.section-title {
+    font-size: 42px;
+    font-weight: 800;
+    color: var(--color-port-gore);
+    margin-bottom: 12px;
+}
+
+.section-subtitle {
+    font-size: 18px;
+    color: var(--color-gray-dark);
+    margin-bottom: 20px;
+}
+
+.view-all-link {
+    display: inline-flex;
+    align-items: center;
+    color: var(--color-woodland);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    transition: var(--transition-fast);
+}
+
+.view-all-link:hover {
+    color: var(--color-port-gore);
+    gap: 8px;
+}
+
+/* =============================================================================
+   17. CATEGORIES BANNER - Banner danh mục
+   ============================================================================= */
+.categories-banner {
+    padding: 60px 0;
+}
+
+.category-banner {
+    position: relative;
+    padding: 40px 30px;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    transition: var(--transition-normal);
+    cursor: pointer;
+}
+
+.category-banner:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.banner-content {
+    position: relative;
+    z-index: 2;
+}
+
+.banner-content h3 {
+    font-size: 30px !important;
+    font-weight: 700;
+    color: var(--color-port-gore);
+    margin-bottom: 8px;
+}
+
+.banner-content p {
+    font-size: 18px !important;
+    color: var(--color-blackcurrant);
+    margin-bottom: 20px;
+}
+
+.banner-link {
+    display: inline-flex;
+    align-items: center;
+    color: var(--color-woodland);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    transition: var(--transition-fast);
+}
+
+.banner-link:hover {
+    gap: 8px;
+    color: var(--color-port-gore);
+}
+
+.banner-image {
+    position: absolute;
+    right: 20px;
+    bottom: 0;
+    width: 150px;
+    height: 150px;
+    opacity: 0.3;
+}
+
+.banner-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* =============================================================================
+   18. RESPONSIVE - Trang chủ [REMOVED - Desktop Only Development]
+   ============================================================================= */
+
+/* =============================================================================
+   NOTIFICATION SYSTEM
+   ============================================================================= */
+.notification-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    max-width: 400px;
+}
+
+.notification-container .alert {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border: none;
+    border-radius: 8px;
+    animation: slideInRight 0.3s ease-out;
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(400px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}

@@ -1,0 +1,161 @@
+/* Hiệu ứng thông báo */
+.notification-enter {
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Hiệu ứng mượt cho modal */
+#productModal,
+#deleteModal {
+    transition: opacity 0.2s ease-in-out;
+}
+
+/* Hiệu ứng hover kéo thả file */
+.border-dashed:hover {
+    border-color: #3b82f6;
+    background-color: #eff6ff;
+}
+
+/* Thanh cuộn tùy chỉnh cho modal */
+.max-h-\[90vh\]::-webkit-scrollbar {
+    width: 8px;
+}
+
+.max-h-\[90vh\]::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.max-h-\[90vh\]::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+.max-h-\[90vh\]::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Hiệu ứng hover bảng */
+tbody tr:hover {
+    background-color: #f9fafb;
+    transition: background-color 0.15s ease-in-out;
+}
+
+/* Hiệu ứng hover nút */
+button {
+    transition: all 0.15s ease-in-out;
+}
+
+/* Hiệu ứng focus input */
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Style xem trước ảnh */
+#currentImage img {
+    transition: transform 0.2s ease-in-out;
+}
+
+#currentImage img:hover {
+    transform: scale(1.05);
+}
+
+/* Style badge */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 9999px;
+}
+
+/* Hiệu ứng nhấp nháy trạng thái */
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.status-active {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Spinner loading */
+.spinner {
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #3b82f6;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Style in ấn */
+@media print {
+
+    #notification,
+    button,
+    .no-print {
+        display: none !important;
+    }
+
+    table {
+        page-break-inside: auto;
+    }
+
+    tr {
+        page-break-inside: avoid;
+        page-break-after: auto;
+    }
+
+    button:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+
+    .fa-spinner {
+        animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+        from {
+            transform: rotate(0deg);
+        }
+
+        to {
+            transform: rotate(360deg);
+        }
+    }
+}

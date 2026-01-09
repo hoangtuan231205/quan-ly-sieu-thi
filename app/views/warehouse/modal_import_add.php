@@ -1,0 +1,100 @@
+<div class="wh-modal" id="wh-add-modal">
+  <div class="wh-modal-box wh-modal-xl">
+    <div class="wh-modal-head">
+      <div>
+        <div class="wh-modal-title">Tạo Phiếu Nhập Kho Mới</div>
+        <div class="wh-modal-sub">Nhập kho › Tạo phiếu nhập</div>
+      </div>
+      <button class="wh-close" type="button" onclick="closeAdd()">×</button>
+    </div>
+
+    <div class="wh-modal-body wh-grid-2">
+
+      <div class="wh-panel">
+        <h3 class="wh-panel-title">Thông Tin Phiếu</h3>
+
+        <div class="wh-field">
+          <label>Mã phiếu</label>
+          <input disabled placeholder="Tự động sinh (trigger)">
+        </div>
+
+        <div class="wh-field">
+          <label>Ngày nhập</label>
+          <input type="date" id="wh-add-date">
+        </div>
+
+        <div class="wh-field">
+          <label>Ghi chú</label>
+          <textarea id="wh-add-note" placeholder="Nhập ghi chú chung..."></textarea>
+        </div>
+
+        <div class="wh-total">
+          Tổng tiền: <b id="wh-add-total">0 đ</b>
+        </div>
+      </div>
+
+      <div class="wh-panel">
+        <h3 class="wh-panel-title">Thêm Chi Tiết Sản Phẩm</h3>
+
+        <div class="wh-field wh-searchbox">
+          <label>Tìm sản phẩm (tên hoặc mã)</label>
+          <input id="wh-add-q" placeholder="Nhập >= 2 ký tự...">
+          <div class="wh-suggest" id="wh-add-suggest"></div>
+        </div>
+
+        <div class="wh-row-3">
+          <div class="wh-field">
+            <label>Mã SP</label>
+            <input id="wh-add-ma" disabled>
+          </div>
+          <div class="wh-field">
+            <label>ĐVT</label>
+            <input id="wh-add-dvt" disabled>
+          </div>
+          <div class="wh-field">
+            <label>Giá hiện tại</label>
+            <input id="wh-add-gia" disabled>
+          </div>
+        </div>
+
+        <div class="wh-row-2">
+          <div class="wh-field">
+            <label>Số lượng nhập</label>
+            <input id="wh-add-qty" type="number" min="1" value="1">
+          </div>
+          <div class="wh-field">
+            <label>Đơn giá nhập</label>
+            <input id="wh-add-price" type="number" min="0" value="0">
+          </div>
+        </div>
+
+        <button class="wh-btn wh-btn-success" type="button" onclick="addLine()">+ Thêm vào danh sách</button>
+      </div>
+    </div>
+
+    <div class="wh-panel">
+      <h3 class="wh-panel-title">Danh Sách Hàng Hóa</h3>
+
+      <table class="wh-table">
+        <thead>
+          <tr>
+            <th>SẢN PHẨM</th>
+            <th>ĐVT</th>
+            <th>GIÁ BÁN</th>
+            <th>SỐ LƯỢNG</th>
+            <th>GIÁ NHẬP</th>
+            <th>THÀNH TIỀN</th>
+          </tr>
+        </thead>
+        <tbody id="wh-add-lines">
+          <tr><td colspan="6" class="wh-empty">Chưa có sản phẩm</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="wh-modal-foot">
+      <button class="wh-btn wh-btn-outline" type="button" onclick="closeAdd()">Hủy</button>
+      <button class="wh-btn wh-btn-primary" type="button" onclick="submitAdd()">💾 Lưu Phiếu</button>
+    </div>
+  </div>
+</div>
