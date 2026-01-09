@@ -485,7 +485,7 @@ include __DIR__ . '/../layouts/header.php';
 <div class="cart-page-wrapper">
     <!-- Breadcrumb -->
     <div class="breadcrumb-section">
-        <a href="<?= BASE_URL ?>/public/">Trang chủ</a>
+        <a href="<?= BASE_URL ?>/">Trang chủ</a>
         <span>›</span>
         <span>Giỏ hàng</span>
     </div>
@@ -564,7 +564,7 @@ include __DIR__ . '/../layouts/header.php';
             <?php endforeach; ?>
 
             <!-- Continue Shopping Link -->
-            <a href="<?= BASE_URL ?>/public/products" class="continue-shopping-link">
+            <a href="<?= BASE_URL ?>/products" class="continue-shopping-link">
                 ← Tiếp tục mua sắm
             </a>
         </div>
@@ -624,7 +624,7 @@ include __DIR__ . '/../layouts/header.php';
             <div class="empty-cart-icon">🛒</div>
             <h3 class="empty-cart-title">Giỏ hàng trống</h3>
             <p class="empty-cart-text">Bạn chưa có sản phẩm nào trong giỏ hàng. Hãy khám phá ngay!</p>
-            <a href="<?= BASE_URL ?>/public/products" class="checkout-btn-modern btn-continue-shopping">
+            <a href="<?= BASE_URL ?>/products" class="checkout-btn-modern btn-continue-shopping">
                 <i class="fas fa-shopping-bag"></i>
                 Tiếp tục mua sắm
             </a>
@@ -654,7 +654,7 @@ function updateQty(cartId, change) {
     formData.append('quantity', newQty);
     formData.append('csrf_token', csrfToken);
 
-    fetch('<?= BASE_URL ?>/public/cart/update', {
+    fetch('<?= BASE_URL ?>/cart/update', {
         method: 'POST',
         body: formData,
         headers: { 'X-Requested-With': 'XMLHttpRequest' }
@@ -755,7 +755,7 @@ function removeItem(cartId) {
     formData.append('cart_id', cartId);
     formData.append('csrf_token', csrfToken);
 
-    fetch('<?= BASE_URL ?>/public/cart/remove', {
+    fetch('<?= BASE_URL ?>/cart/remove', {
         method: 'POST',
         body: formData,
         headers: { 'X-Requested-With': 'XMLHttpRequest' }
@@ -796,7 +796,7 @@ function proceedToCheckout() {
     }
 
     const ids = Array.from(checkboxes).map(cb => cb.dataset.id).join(',');
-    window.location.href = '<?= BASE_URL ?>/public/checkout?items=' + ids;
+    window.location.href = '<?= BASE_URL ?>/checkout?items=' + ids;
 }
 
 // Áp dụng mã giảm giá

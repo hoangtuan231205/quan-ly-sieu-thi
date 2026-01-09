@@ -11,7 +11,7 @@
     <div class="admin-modern-container">
         <!-- Breadcrumb -->
         <div class="admin-breadcrumb">
-            <a href="<?= BASE_URL ?>/public/">Trang chủ</a>
+            <a href="<?= BASE_URL ?>/">Trang chủ</a>
             <i class="fas fa-chevron-right" style="font-size: 10px;"></i>
             <span class="current">Quản lý đơn hàng</span>
         </div>
@@ -25,7 +25,7 @@
                 <p class="admin-page-subtitle">Theo dõi và xử lý các đơn hàng từ khách hàng</p>
             </div>
             <div class="admin-header-actions">
-                <a href="<?= BASE_URL ?>/public/admin/export-orders" class="btn-admin-secondary">
+                <a href="<?= BASE_URL ?>/admin/export-orders" class="btn-admin-secondary">
                     <i class="fas fa-download"></i>
                     <span>Xuất Excel</span>
                 </a>

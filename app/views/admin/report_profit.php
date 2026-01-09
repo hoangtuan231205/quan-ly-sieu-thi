@@ -11,7 +11,7 @@
     <div class="admin-modern-container">
         <!-- Breadcrumb -->
         <div class="admin-breadcrumb">
-            <a href="<?= BASE_URL ?>/public/">Trang chủ</a>
+            <a href="<?= BASE_URL ?>/">Trang chủ</a>
             <i class="fas fa-chevron-right" style="font-size: 10px;"></i>
             <span class="current">Báo cáo Lãi/Lỗ</span>
         </div>
@@ -26,7 +26,7 @@
                 <p class="admin-page-subtitle">Phân tích doanh thu, chi phí và lợi nhuận kinh doanh</p>
             </div>
             <div class="admin-header-actions">
-                <a href="<?= BASE_URL ?>/public/admin/export-profit-excel?date_from=<?= $date_from ?>&date_to=<?= $date_to ?>" class="btn-admin-primary">
+                <a href="<?= BASE_URL ?>/admin/export-profit-excel?date_from=<?= $date_from ?>&date_to=<?= $date_to ?>" class="btn-admin-primary">
                     <i class="fas fa-download"></i>
                     <span>Xuất báo cáo</span>
                 </a>

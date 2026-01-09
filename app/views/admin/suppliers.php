@@ -619,9 +619,9 @@ $csrf_token = $csrf_token ?? '';
     <div class="supplier-container">
         <!-- Breadcrumb -->
         <nav class="supplier-breadcrumb">
-            <a href="<?= BASE_URL ?>/public/">Trang chủ</a>
+            <a href="<?= BASE_URL ?>/">Trang chủ</a>
             <i class="fas fa-chevron-right" style="font-size: 10px;"></i>
-            <a href="<?= BASE_URL ?>/public/admin">Quản lý</a>
+            <a href="<?= BASE_URL ?>/admin">Quản lý</a>
             <i class="fas fa-chevron-right" style="font-size: 10px;"></i>
             <span>Nhà cung cấp</span>
         </nav>

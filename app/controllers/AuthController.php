@@ -19,7 +19,7 @@ class AuthController extends Controller {
     public function login() {
         // Nếu đã đăng nhập, chuyển hướng
         if ($this->isLoggedIn()) {
-            redirect('/sieu_thi/public/');
+            redirect(BASE_URL . '/');
         }
         
         $data = [];
@@ -41,7 +41,7 @@ class AuthController extends Controller {
         // Validate
         if (empty($email) || empty($password)) {
             $_SESSION['error'] = 'Vui lòng nhập email và mật khẩu';
-            redirect('/sieu_thi/public/auth/login');
+            redirect(BASE_URL . '/auth/login');
         }
         
         // Tìm user
@@ -49,13 +49,13 @@ class AuthController extends Controller {
         
         if (!$user) {
             $_SESSION['error'] = 'Email không tồn tại';
-            redirect('/sieu_thi/public/auth/login');
+            redirect(BASE_URL . '/auth/login');
         }
         
         // Kiểm tra mật khẩu
         if (!password_verify($password, $user['Mat_khau'])) {
             $_SESSION['error'] = 'Mật khẩu không đúng';
-            redirect('/sieu_thi/public/auth/login');
+            redirect(BASE_URL . '/auth/login');
         }
         
         // Đăng nhập thành công
@@ -85,11 +85,11 @@ class AuthController extends Controller {
         
         // Chuyển hướng theo vai trò
         if ($user['Phan_quyen'] == 'ADMIN') {
-            redirect('/sieu_thi/public');
+            redirect(BASE_URL);
         } elseif ($user['Phan_quyen'] == 'QUAN_LY_KHO') {
-            redirect('/sieu_thi/public');
+            redirect(BASE_URL);
         } else {
-            redirect('/sieu_thi/public/');
+            redirect(BASE_URL . '/');
         }
     }
     
@@ -99,7 +99,7 @@ class AuthController extends Controller {
     public function register() {
         // Nếu đã đăng nhập, chuyển hướng
         if ($this->isLoggedIn()) {
-            redirect('/sieu_thi/public/');
+            redirect(BASE_URL . '/');
         }
         
         $data = [];
@@ -124,34 +124,34 @@ class AuthController extends Controller {
         // Validate
         if (empty($name) || empty($username) || empty($email) || empty($password) || empty($password_confirm)) {
             $_SESSION['error'] = 'Vui lòng điền đầy đủ thông tin';
-            redirect('/sieu_thi/public/auth/register');
+            redirect(BASE_URL . '/auth/register');
         }
         
         // Validate username - cho phép chữ, số, dấu gạch dưới, tiếng Việt
         if (strlen($username) < 3) {
             $_SESSION['error'] = 'Tên đăng nhập phải có ít nhất 3 ký tự';
-            redirect('/sieu_thi/public/auth/register');
+            redirect(BASE_URL . '/auth/register');
         }
         
         if ($password !== $password_confirm) {
             $_SESSION['error'] = 'Mật khẩu không khớp';
-            redirect('/sieu_thi/public/auth/register');
+            redirect(BASE_URL . '/auth/register');
         }
         
         if (strlen($password) < 6) {
             $_SESSION['error'] = 'Mật khẩu phải có ít nhất 6 ký tự';
-            redirect('/sieu_thi/public/auth/register');
+            redirect(BASE_URL . '/auth/register');
         }
         
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $_SESSION['error'] = 'Email không hợp lệ';
-            redirect('/sieu_thi/public/auth/register');
+            redirect(BASE_URL . '/auth/register');
         }
         
         // Kiểm tra email đã tồn tại
         if ($this->user->findByEmail($email)) {
             $_SESSION['error'] = 'Email đã được sử dụng';
-            redirect('/sieu_thi/public/auth/register');
+            redirect(BASE_URL . '/auth/register');
         }
         
         // Tạo user mới
@@ -167,10 +167,10 @@ class AuthController extends Controller {
         
         if ($this->user->create($newUser)) {
             $_SESSION['success'] = 'Đăng ký thành công. Vui lòng đăng nhập';
-            redirect('/sieu_thi/public/auth/login');
+            redirect(BASE_URL . '/auth/login');
         } else {
             $_SESSION['error'] = 'Có lỗi xảy ra. Vui lòng thử lại';
-            redirect('/sieu_thi/public/auth/register');
+            redirect(BASE_URL . '/auth/register');
         }
     }
     
@@ -180,7 +180,7 @@ class AuthController extends Controller {
     public function logout() {
         session_destroy();
         $_SESSION = [];
-        redirect('/sieu_thi/public/');
+        redirect(BASE_URL . '/');
     }
     
     /**

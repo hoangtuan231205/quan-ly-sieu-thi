@@ -159,7 +159,7 @@ function addToCart(productId, quantity = 1) {
     if (!baseUrl) {
         const pathname = window.location.pathname;
         if (pathname.includes('/sieu_thi')) {
-            baseUrl = '/sieu_thi';
+            baseUrl = '/sieu_thi/public';
         } else {
             baseUrl = '';
         }

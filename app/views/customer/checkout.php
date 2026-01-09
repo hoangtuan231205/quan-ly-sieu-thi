@@ -500,9 +500,9 @@ body, html {
     
     <!-- Breadcrumb -->
     <div class="breadcrumb-section">
-        <a href="<?= BASE_URL ?>/public/">Trang chủ</a>
+        <a href="<?= BASE_URL ?>/">Trang chủ</a>
         <span class="separator">›</span>
-        <a href="<?= BASE_URL ?>/public/cart">Giỏ hàng</a>
+        <a href="<?= BASE_URL ?>/cart">Giỏ hàng</a>
         <span class="separator">›</span>
         <span class="current">Thanh toán</span>
     </div>
@@ -510,7 +510,7 @@ body, html {
     <div class="checkout-container">
         <h1 class="page-title">Thanh toán</h1>
             
-        <form method="POST" action="<?= BASE_URL ?>/public/checkout/process" id="checkoutForm" data-validate-form>
+        <form method="POST" action="<?= BASE_URL ?>/checkout/process" id="checkoutForm" data-validate-form>
             <input type="hidden" name="csrf_token" value="<?= Session::getCsrfToken() ?>">
             <input type="hidden" name="selected_ids" value="<?= $selected_ids ?? '' ?>">
             
@@ -744,11 +744,11 @@ function updateQuantity(cartId, change) {
     formData.append('quantity', newQty);
     formData.append('csrf_token', csrfToken);
     
-    let url = '<?= BASE_URL ?>/public/checkout/updateDirectQuantity'; // Default for direct
+    let url = '<?= BASE_URL ?>/checkout/updateDirectQuantity'; // Default for direct
     
     if (cartId !== 'direct') {
         formData.append('cart_id', cartId);
-        url = '<?= BASE_URL ?>/public/cart/update';
+        url = '<?= BASE_URL ?>/cart/update';
     }
     
     // Vô hiệu hóa các nút

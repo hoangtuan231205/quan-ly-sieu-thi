@@ -602,7 +602,7 @@ function getStockStatus($quantity) {
 <div class="admin-products-wrapper">
     <!-- Breadcrumb -->
     <div class="breadcrumb-section">
-        <a href="<?= BASE_URL ?>/public/">Trang chủ</a>
+        <a href="<?= BASE_URL ?>/">Trang chủ</a>
         <span>›</span>
         <span>Quản lý sản phẩm</span>
     </div>
@@ -621,7 +621,7 @@ function getStockStatus($quantity) {
                     <i class="fas fa-file-upload"></i>
                     <span>Import Excel</span>
                 </button>
-                <a href="<?= BASE_URL ?>/public/admin/export-products" class="btn-action-secondary">
+                <a href="<?= BASE_URL ?>/admin/export-products" class="btn-action-secondary">
                     <i class="fas fa-file-download"></i>
                     <span>Export Excel</span>
                 </a>
@@ -633,7 +633,7 @@ function getStockStatus($quantity) {
         </div>
 
         <!-- Filters Section -->
-        <form method="GET" action="<?= BASE_URL ?>/public/admin/products" class="filters-section">
+        <form method="GET" action="<?= BASE_URL ?>/admin/products" class="filters-section">
             <div class="search-box">
                 <i class="fas fa-search search-icon"></i>
                 <input 
@@ -660,7 +660,7 @@ function getStockStatus($quantity) {
                 <i class="fas fa-filter"></i>
             </button>
             
-            <a href="<?= BASE_URL ?>/public/admin/products" class="clear-filters">Xóa bộ lọc</a>
+            <a href="<?= BASE_URL ?>/admin/products" class="clear-filters">Xóa bộ lọc</a>
         </form>
 
         <!-- Products Table -->
@@ -1065,7 +1065,7 @@ function getStockStatus($quantity) {
             </div>
             
             <!-- Upload file -->
-            <form id="importForm" method="POST" enctype="multipart/form-data" action="<?= BASE_URL ?>/public/admin/product-import">
+            <form id="importForm" method="POST" enctype="multipart/form-data" action="<?= BASE_URL ?>/admin/product-import">
                 <input type="hidden" name="csrf_token" value="<?= $csrf_token ?>">
                 <div style="border: 2px dashed #e5e7eb; border-radius: 8px; padding: 24px; text-align: center;">
                     <i class="fas fa-file-excel" style="font-size: 40px; color: #16a34a; margin-bottom: 12px;"></i>
@@ -1103,7 +1103,7 @@ function openAddModal() {
     document.getElementById('productForm').reset();
     document.getElementById('product_id').value = '';
     document.getElementById('currentImage').style.display = 'none';
-    document.getElementById('productForm').action = '<?= BASE_URL ?>/public/admin/product-add';
+    document.getElementById('productForm').action = '<?= BASE_URL ?>/admin/product-add';
     document.getElementById('productModal').classList.remove('hidden');
 }
 
@@ -1127,7 +1127,7 @@ function openEditModal(product) {
         document.getElementById('currentImage').style.display = 'none';
     }
     
-    document.getElementById('productForm').action = '<?= BASE_URL ?>/public/admin/product-edit/' + product.ID_sp;
+    document.getElementById('productForm').action = '<?= BASE_URL ?>/admin/product-edit/' + product.ID_sp;
     document.getElementById('productModal').classList.remove('hidden');
 }
 
@@ -1150,7 +1150,7 @@ function submitDelete() {
     const productId = document.getElementById('delete_product_id').value;
     const form = document.createElement('form');
     form.method = 'POST';
-    form.action = '<?= BASE_URL ?>/public/admin/product-delete';
+    form.action = '<?= BASE_URL ?>/admin/product-delete';
     
     const idInput = document.createElement('input');
     idInput.type = 'hidden';

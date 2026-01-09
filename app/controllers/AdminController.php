@@ -18,12 +18,14 @@
  * - AdminReportTrait    → Báo cáo (reports, reportProfit, reportExpiry, reportTopProducts)
  * - AdminDisposalTrait  → Phiếu hủy (disposals, disposalAdd, disposalDetail, ...)
  * - AdminSupplierTrait  → Nhà cung cấp (suppliers, supplierAdd, supplierUpdate, ...)
+ * - AdminUserTrait      → Quản lý người dùng (users)
  */
 
 // Nạp các traits
 require_once __DIR__ . '/traits/AdminReportTrait.php';
 require_once __DIR__ . '/traits/AdminDisposalTrait.php';
 require_once __DIR__ . '/traits/AdminSupplierTrait.php';
+require_once __DIR__ . '/traits/AdminUserTrait.php';
 
 class AdminController extends Controller {
     
@@ -31,6 +33,7 @@ class AdminController extends Controller {
     use AdminReportTrait;
     use AdminDisposalTrait;
     use AdminSupplierTrait;
+    use AdminUserTrait;
     
     private $productModel;
     private $categoryModel;
@@ -649,7 +652,7 @@ class AdminController extends Controller {
                 $this->json(['error' => 'Invalid request'], 400);
             } else {
                 Session::flash('error', 'Phương thức không hợp lệ');
-                redirect(BASE_URL . '/public/admin/products');
+                redirect(BASE_URL . '/admin/products');
             }
             return;
         }
@@ -661,7 +664,7 @@ class AdminController extends Controller {
                 $this->json(['success' => false, 'message' => 'ID không hợp lệ']);
             } else {
                 Session::flash('error', 'ID sản phẩm không hợp lệ');
-                redirect(BASE_URL . '/public/admin/products');
+                redirect(BASE_URL . '/admin/products');
             }
             return;
         }
@@ -675,7 +678,7 @@ class AdminController extends Controller {
                 ]);
             } else {
                 Session::flash('error', 'Không thể xóa sản phẩm đã có trong đơn hàng');
-                redirect(BASE_URL . '/public/admin/products');
+                redirect(BASE_URL . '/admin/products');
             }
             return;
         }
@@ -694,7 +697,7 @@ class AdminController extends Controller {
                 ]);
             } else {
                 Session::flash('success', 'Xóa sản phẩm thành công');
-                redirect(BASE_URL . '/public/admin/products');
+                redirect(BASE_URL . '/admin/products');
             }
         } else {
             if ($isAjax) {
@@ -704,7 +707,7 @@ class AdminController extends Controller {
                 ]);
             } else {
                 Session::flash('error', 'Xóa sản phẩm thất bại');
-                redirect(BASE_URL . '/public/admin/products');
+                redirect(BASE_URL . '/admin/products');
             }
         }
     }
@@ -1008,28 +1011,10 @@ class AdminController extends Controller {
         }
     }
     
-    /**
-     * ==========================================================================
-     * QUẢN LÝ NGƯỜI DÙNG - [ĐANG PHÁT TRIỂN]
-     * ==========================================================================
-     * TODO: Tự implement các methods quản lý người dùng
-     * - users(): Hiển thị danh sách người dùng
-     * - userAdd(): Thêm người dùng mới
-     * - userUpdate(): Cập nhật thông tin người dùng
-     * - userUpdateStatus(): Cập nhật trạng thái người dùng
-     * - userGet(): Lấy thông tin người dùng
-     */
-    public function users() {
-        // TODO: Implement
-        $data = [
-            'page_title' => 'Quản lý người dùng - Admin',
-            'users' => [],
-            'filters' => [],
-            'pagination' => [],
-            'csrf_token' => Session::getCsrfToken()
-        ];
-        $this->view('admin/users', $data);
-    }
+    // =========================================================================
+    // USER METHODS → AdminUserTrait
+    // Method users() is implemented in AdminUserTrait
+    // =========================================================================
     
     // =========================================================================
     // SUPPLIER METHODS → AdminSupplierTrait
@@ -1107,19 +1092,19 @@ class AdminController extends Controller {
     public function productImport() {
         if (!$this->isMethod('POST')) {
             Session::flash('error', 'Phương thức không hợp lệ');
-            redirect(BASE_URL . '/public/admin/products');
+            redirect(BASE_URL . '/admin/products');
         }
         
         // Verify CSRF
         if (!Middleware::verifyCsrf(post('csrf_token', ''))) {
             Session::flash('error', 'Token không hợp lệ');
-            redirect(BASE_URL . '/public/admin/products');
+            redirect(BASE_URL . '/admin/products');
         }
         
         // Kiểm tra file đã được tải lên chưa
         if (!isset($_FILES['import_file']) || $_FILES['import_file']['error'] != 0) {
             Session::flash('error', 'Vui lòng chọn file Excel');
-            redirect(BASE_URL . '/public/admin/products');
+            redirect(BASE_URL . '/admin/products');
         }
         
         $file = $_FILES['import_file'];
@@ -1128,7 +1113,7 @@ class AdminController extends Controller {
         // Kiểm tra phần mở rộng
         if (!in_array($ext, ['xls', 'xlsx', 'csv'])) {
             Session::flash('error', 'Định dạng file không hợp lệ. Chấp nhận: .xls, .xlsx, .csv');
-            redirect(BASE_URL . '/public/admin/products');
+            redirect(BASE_URL . '/admin/products');
         }
         
         try {
@@ -1203,7 +1188,7 @@ class AdminController extends Controller {
             Session::flash('error', 'Lỗi đọc file: ' . $e->getMessage());
         }
         
-        redirect(BASE_URL . '/public/admin/products');
+        redirect(BASE_URL . '/admin/products');
     }
     
     /**

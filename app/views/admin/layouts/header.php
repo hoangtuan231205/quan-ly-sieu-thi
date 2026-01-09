@@ -18,6 +18,11 @@
     <link rel="stylesheet" href="<?= asset('css/admin-dashboard.css') ?>">
     <link rel="stylesheet" href="<?= asset('css/admin-modern.css') ?>">
     
+    <?php if (isset($additional_css)): ?>
+    <!-- Additional CSS -->
+    <link rel="stylesheet" href="<?= $additional_css ?>">
+    <?php endif; ?>
+    
     <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     

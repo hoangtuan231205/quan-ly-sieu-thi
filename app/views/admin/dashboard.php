@@ -46,7 +46,7 @@ $today = date('d/m/Y');
                 <i class="fas fa-sync-alt"></i>
                 Làm mới
             </button>
-            <button class="btn-outline" onclick="window.location.href='<?= BASE_URL ?>/public/admin/export-products'">
+            <button class="btn-outline" onclick="window.location.href='<?= BASE_URL ?>/admin/export-products'">
                 <i class="fas fa-download"></i>
                 Xuất dữ liệu
             </button>
@@ -95,7 +95,7 @@ $today = date('d/m/Y');
                 </p>
             </div>
             <div class="alert-actions">
-                <a href="<?= BASE_URL ?>/public/admin/report-expiry" class="btn-alert">
+                <a href="<?= BASE_URL ?>/admin/report-expiry" class="btn-alert">
                     <i class="fas fa-eye"></i> Xem Chi Tiết
                 </a>
             </div>
@@ -118,7 +118,7 @@ $today = date('d/m/Y');
                 </p>
             </div>
             <div class="alert-actions">
-                <a href="<?= BASE_URL ?>/public/admin/products" class="btn-alert">
+                <a href="<?= BASE_URL ?>/admin/products" class="btn-alert">
                     <i class="fas fa-arrow-right"></i> Nhập Hàng
                 </a>
             </div>
@@ -205,7 +205,7 @@ $today = date('d/m/Y');
         <div class="chart-card">
             <div class="chart-card-header">
                 <h3 class="chart-card-title">Xu hướng Doanh thu</h3>
-                <a href="<?= BASE_URL ?>/public/admin/report-profit" class="chart-card-link">Xem báo cáo</a>
+                <a href="<?= BASE_URL ?>/admin/report-profit" class="chart-card-link">Xem báo cáo</a>
             </div>
             <div class="chart-container">
                 <canvas id="revenueChart"></canvas>
@@ -216,7 +216,7 @@ $today = date('d/m/Y');
         <div class="chart-card">
             <div class="chart-card-header">
                 <h3 class="chart-card-title">Biến động Lợi nhuận</h3>
-                <a href="<?= BASE_URL ?>/public/admin/report-profit" class="chart-card-link">Xem báo cáo</a>
+                <a href="<?= BASE_URL ?>/admin/report-profit" class="chart-card-link">Xem báo cáo</a>
             </div>
             <div class="chart-container">
                 <canvas id="profitChart"></canvas>
@@ -237,7 +237,7 @@ $today = date('d/m/Y');
                     <p>Phân bố danh mục và cảnh báo cần xử lý ngay</p>
                 </div>
             </div>
-            <button class="btn-outline" onclick="window.location.href='<?= BASE_URL ?>/public/admin/report-expiry'">
+            <button class="btn-outline" onclick="window.location.href='<?= BASE_URL ?>/admin/report-expiry'">
                 <i class="fas fa-cog"></i>
                 Cấu hình cảnh báo
             </button>
@@ -356,7 +356,7 @@ $today = date('d/m/Y');
                                         <?php endif; ?>
                                     </td>
                                     <td style="text-align: right;">
-                                        <button class="btn-link-primary" onclick="window.location.href='<?= BASE_URL ?>/public/admin/product-edit/<?= $product['ID_sp'] ?? '' ?>'">
+                                        <button class="btn-link-primary" onclick="window.location.href='<?= BASE_URL ?>/admin/product-edit/<?= $product['ID_sp'] ?? '' ?>'">
                                             Nhập hàng
                                         </button>
                                     </td>
@@ -426,7 +426,7 @@ $today = date('d/m/Y');
                         <?php endif; ?>
                         
                         <!-- View All Link -->
-                        <a href="<?= BASE_URL ?>/public/admin/report-expiry" class="view-all-link">
+                        <a href="<?= BASE_URL ?>/admin/report-expiry" class="view-all-link">
                             <span>Xem tất cả cảnh báo</span>
                             <i class="fas fa-arrow-right"></i>
                         </a>

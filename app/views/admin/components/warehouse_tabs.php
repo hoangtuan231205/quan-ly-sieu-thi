@@ -56,16 +56,16 @@ if (!function_exists('isTabActive')) {
 </style>
 
 <div class="section-tabs">
-    <a href="<?= BASE_URL ?>/public/admin/products" class="tab-item <?= isTabActive('products') ?>">
+    <a href="<?= BASE_URL ?>/admin/products" class="tab-item <?= isTabActive('products') ?>">
         <i class="fas fa-box"></i> Sản phẩm
     </a>
-    <a href="<?= BASE_URL ?>/public/admin/categories" class="tab-item <?= isTabActive('categories') ?>">
+    <a href="<?= BASE_URL ?>/admin/categories" class="tab-item <?= isTabActive('categories') ?>">
         <i class="fas fa-tags"></i> Danh mục
     </a>
-    <a href="<?= BASE_URL ?>/public/warehouse" class="tab-item <?= isTabActive('warehouse') ?>">
+    <a href="<?= BASE_URL ?>/warehouse" class="tab-item <?= isTabActive('warehouse') ?>">
         <i class="fas fa-truck-loading"></i> Nhập kho
     </a>
-    <a href="<?= BASE_URL ?>/public/admin/disposals" class="tab-item <?= isTabActive('disposal') ?>">
+    <a href="<?= BASE_URL ?>/admin/disposals" class="tab-item <?= isTabActive('disposal') ?>">
         <i class="fas fa-trash-alt"></i> Phiếu hủy
     </a>
 </div>

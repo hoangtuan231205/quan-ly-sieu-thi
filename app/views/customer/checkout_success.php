@@ -184,9 +184,9 @@ include __DIR__ . '/../layouts/header.php';
         <!-- Breadcrumbs -->
         <nav aria-label="breadcrumb" class="breadcrumb-nav">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="<?= BASE_URL ?>/public/">Trang chủ</a></li>
-                <li class="breadcrumb-item"><a href="<?= BASE_URL ?>/public/cart">Giỏ hàng</a></li>
-                <li class="breadcrumb-item"><a href="<?= BASE_URL ?>/public/checkout">Thanh toán</a></li>
+                <li class="breadcrumb-item"><a href="<?= BASE_URL ?>/">Trang chủ</a></li>
+                <li class="breadcrumb-item"><a href="<?= BASE_URL ?>/cart">Giỏ hàng</a></li>
+                <li class="breadcrumb-item"><a href="<?= BASE_URL ?>/checkout">Thanh toán</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Hoàn tất</li>
             </ol>
         </nav>
@@ -293,10 +293,10 @@ include __DIR__ . '/../layouts/header.php';
             
             <!-- Action Buttons -->
             <div class="action-buttons">
-                <a href="<?= BASE_URL ?>/public/products" class="btn-secondary">
+                <a href="<?= BASE_URL ?>/products" class="btn-secondary">
                     <i class="fas fa-shopping-bag me-2"></i> Tiếp tục mua hàng
                 </a>
-                <a href="<?= BASE_URL ?>/public/orders" class="btn-primary">
+                <a href="<?= BASE_URL ?>/orders" class="btn-primary">
                     <i class="fas fa-list me-2"></i> Xem đơn hàng của tôi
                 </a>
             </div>
@@ -308,7 +308,7 @@ include __DIR__ . '/../layouts/header.php';
 // Cập nhật giỏ hàng trên header
 document.addEventListener('DOMContentLoaded', function() {
     console.log('Updating cart count...');
-    fetch('<?= BASE_URL ?>/public/cart/count', {
+    fetch('<?= BASE_URL ?>/cart/count', {
         method: 'GET',
         headers: { 'X-Requested-With': 'XMLHttpRequest' }
     })

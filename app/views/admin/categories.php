@@ -476,7 +476,7 @@ function getCategoryIcon($name) {
     <div class="category-container">
         <!-- Breadcrumb -->
         <div class="admin-breadcrumb" style="margin-bottom: 8px;">
-            <a href="<?= BASE_URL ?>/public/">Trang chủ</a>
+            <a href="<?= BASE_URL ?>/">Trang chủ</a>
             <i class="fas fa-chevron-right" style="font-size: 10px;"></i>
             <span>Kho hàng</span>
             <i class="fas fa-chevron-right" style="font-size: 10px;"></i>
@@ -491,7 +491,7 @@ function getCategoryIcon($name) {
                 <h1>Danh Mục Sản Phẩm</h1>
                 <p>Quản lý và tổ chức danh mục hàng hóa của siêu thị. Cập nhật thông tin để tối ưu hóa tìm kiếm.</p>
             </div>
-            <a href="<?= BASE_URL ?>/public/admin/category-add" class="btn-add-category">
+            <a href="<?= BASE_URL ?>/admin/category-add" class="btn-add-category">
                 <i class="fas fa-plus"></i>
                 <span>Thêm danh mục</span>
             </a>
@@ -523,7 +523,7 @@ function getCategoryIcon($name) {
                                 <i class="fas <?= $iconConfig[0] ?>"></i>
                             </div>
                             <div class="category-actions">
-                                <a href="<?= BASE_URL ?>/public/admin/category-edit/<?= $cat['ID_danh_muc'] ?>" class="category-action-btn edit" title="Chỉnh sửa">
+                                <a href="<?= BASE_URL ?>/admin/category-edit/<?= $cat['ID_danh_muc'] ?>" class="category-action-btn edit" title="Chỉnh sửa">
                                     <i class="fas fa-edit"></i>
                                 </a>
                                 <button onclick="deleteCategory(<?= $cat['ID_danh_muc'] ?>)" class="category-action-btn delete" title="Xóa">
@@ -550,7 +550,7 @@ function getCategoryIcon($name) {
             <?php endif; ?>
             
             <!-- Add New Card -->
-            <a href="<?= BASE_URL ?>/public/admin/category-add" class="category-card-add">
+            <a href="<?= BASE_URL ?>/admin/category-add" class="category-card-add">
                 <div class="add-icon">
                     <i class="fas fa-plus"></i>
                 </div>

@@ -32,7 +32,7 @@
                             <p class="hero-desc">
                                 Thực phẩm tươi sống, chất lượng cao từ các nông trại uy tín
                             </p>
-                            <a href="<?= BASE_URL ?>/public/products?category=2" class="btn btn-woodland btn-lg">
+                            <a href="<?= BASE_URL ?>/products?category=2" class="btn btn-woodland btn-lg">
                                 Mua ngay
                                 <i class="fas fa-arrow-right ms-2"></i>
                             </a>
@@ -52,7 +52,7 @@
                             <p class="hero-desc">
                                 Sữa tươi sạch từ các trang trại đạt chuẩn quốc tế
                             </p>
-                            <a href="<?= BASE_URL ?>/public/products?category=1" class="btn btn-woodland btn-lg">
+                            <a href="<?= BASE_URL ?>/products?category=1" class="btn btn-woodland btn-lg">
                                 Khám phá ngay
                                 <i class="fas fa-arrow-right ms-2"></i>
                             </a>
@@ -72,7 +72,7 @@
                             <p class="hero-desc">
                                 Nguồn gốc rõ ràng, đảm bảo vệ sinh an toàn thực phẩm
                             </p>
-                            <a href="<?= BASE_URL ?>/public/products?category=5" class="btn btn-woodland btn-lg">
+                            <a href="<?= BASE_URL ?>/products?category=5" class="btn btn-woodland btn-lg">
                                 Xem sản phẩm
                                 <i class="fas fa-arrow-right ms-2"></i>
                             </a>
@@ -160,7 +160,7 @@
             <div class="section-header">
                 <h2 class="section-title">Sản phẩm bán chạy</h2>
                 <p class="section-subtitle">Được khách hàng tin dùng nhất</p>
-                <a href="<?= BASE_URL ?>/public/products" class="view-all-link">
+                <a href="<?= BASE_URL ?>/products" class="view-all-link">
                     Xem tất cả
                     <i class="fas fa-arrow-right ms-2"></i>
                 </a>
@@ -180,12 +180,12 @@
                                 $imagePath = getProductImagePath($product['Hinh_anh'] ?? '');
                                 if (!empty($imagePath)): 
                                 ?>
-                                    <a href="<?= BASE_URL ?>/public/products/detail/<?= $product['ID_sp'] ?>">
+                                    <a href="<?= BASE_URL ?>/products/detail/<?= $product['ID_sp'] ?>">
                                         <img src="<?= asset('img/products/' . $imagePath) ?>" 
                                              alt="<?= htmlspecialchars($product['Ten']) ?>">
                                     </a>
                                 <?php else: ?>
-                                    <a href="<?= BASE_URL ?>/public/products/detail/<?= $product['ID_sp'] ?>">
+                                    <a href="<?= BASE_URL ?>/products/detail/<?= $product['ID_sp'] ?>">
                                         <img src="<?= asset('img/placeholder-product.png') ?>" 
                                              alt="<?= htmlspecialchars($product['Ten']) ?>">
                                     </a>
@@ -194,7 +194,7 @@
                             
                             <!-- Product Info -->
                             <div class="product-info">
-                                <a href="<?= BASE_URL ?>/public/products/detail/<?= $product['ID_sp'] ?>" style="text-decoration: none;">
+                                <a href="<?= BASE_URL ?>/products/detail/<?= $product['ID_sp'] ?>" style="text-decoration: none;">
                                     <h3 class="product-name"><?= htmlspecialchars($product['Ten']) ?></h3>
                                 </a>
                                 
@@ -257,7 +257,7 @@
                         <div class="banner-content">
                             <h3>Rau củ quả</h3>
                             <p>Tươi mỗi ngày</p>
-                            <a href="<?= BASE_URL ?>/public/products?category=5" class="banner-link">
+                            <a href="<?= BASE_URL ?>/products?category=5" class="banner-link">
                                 Mua ngay <i class="fas fa-arrow-right ms-2"></i>
                             </a>
                         </div>
@@ -272,7 +272,7 @@
                         <div class="banner-content">
                             <h3>Thịt & Hải sản</h3>
                             <p>Tươi sống hàng ngày</p>
-                            <a href="<?= BASE_URL ?>/public/products?category=17" class="banner-link">
+                            <a href="<?= BASE_URL ?>/products?category=17" class="banner-link">
                                 Mua ngay <i class="fas fa-arrow-right ms-2"></i>
                             </a>
                         </div>
@@ -287,7 +287,7 @@
                         <div class="banner-content">
                             <h3>Sữa & Thực phẩm</h3>
                             <p>Chất lượng cao</p>
-                            <a href="<?= BASE_URL ?>/public/products?category=1" class="banner-link">
+                            <a href="<?= BASE_URL ?>/products?category=1" class="banner-link">
                                 Mua ngay <i class="fas fa-arrow-right ms-2"></i>
                             </a>
                         </div>

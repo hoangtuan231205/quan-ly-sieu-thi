@@ -346,12 +346,12 @@ function getStatusLabel($status) {
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
-                    <a href="<?= BASE_URL ?>/public/admin/dashboard">
+                    <a href="<?= BASE_URL ?>/admin/dashboard">
                         <i class="fas fa-home"></i> Trang chủ
                     </a>
                 </li>
                 <li class="breadcrumb-item">
-                    <a href="<?= BASE_URL ?>/public/admin/orders">Quản lý giao hàng</a>
+                    <a href="<?= BASE_URL ?>/admin/orders">Quản lý giao hàng</a>
                 </li>
                 <li class="breadcrumb-item active" aria-current="page">
                     Chi tiết đơn hàng
@@ -362,7 +362,7 @@ function getStatusLabel($status) {
 </div>
 
 <div class="detail-page-container">
-    <a href="<?= BASE_URL ?>/public/admin/orders" class="back-link">
+    <a href="<?= BASE_URL ?>/admin/orders" class="back-link">
         <i class="fas fa-arrow-left me-2"></i> Quay lại danh sách
     </a>
 

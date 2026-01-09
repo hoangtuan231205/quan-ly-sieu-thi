@@ -569,7 +569,7 @@
     <div class="disposal-container">
         <!-- Breadcrumb -->
         <div class="admin-breadcrumb" style="margin-bottom: 16px;">
-            <a href="<?= BASE_URL ?>/public/">Trang chủ</a>
+            <a href="<?= BASE_URL ?>/">Trang chủ</a>
             <i class="fas fa-chevron-right" style="font-size: 10px;"></i>
             <span class="current">Quản lý phiếu hủy</span>
         </div>
@@ -583,11 +583,11 @@
                 <p>Theo dõi và kiểm soát thất thoát hàng hóa</p>
             </div>
             <div class="disposal-header-actions">
-                <a href="<?= BASE_URL ?>/public/admin/export-disposal-excel?status=<?= $filters['trang_thai'] ?? '' ?>" class="btn-disposal-secondary">
+                <a href="<?= BASE_URL ?>/admin/export-disposal-excel?status=<?= $filters['trang_thai'] ?? '' ?>" class="btn-disposal-secondary">
                     <i class="fas fa-download"></i>
                     <span>Xuất Excel</span>
                 </a>
-                <a href="<?= BASE_URL ?>/public/admin/disposal-add" class="btn-disposal-primary">
+                <a href="<?= BASE_URL ?>/admin/disposal-add" class="btn-disposal-primary">
                     <i class="fas fa-plus"></i>
                     <span>Tạo Phiếu Hủy Mới</span>
                 </a>
@@ -698,7 +698,7 @@
                     </select>
                 </div>
                 
-                <a href="<?= BASE_URL ?>/public/admin/disposals" class="disposal-filter-btn" title="Reset">
+                <a href="<?= BASE_URL ?>/admin/disposals" class="disposal-filter-btn" title="Reset">
                     <i class="fas fa-undo"></i>
                 </a>
             </div>
@@ -735,7 +735,7 @@
                                         <input type="checkbox" name="selected[]" value="<?= $d['ID_phieu_huy'] ?>" style="cursor: pointer;">
                                     </td>
                                     <td>
-                                        <a href="<?= BASE_URL ?>/public/admin/disposal-detail/<?= $d['ID_phieu_huy'] ?>" class="code-link">
+                                        <a href="<?= BASE_URL ?>/admin/disposal-detail/<?= $d['ID_phieu_huy'] ?>" class="code-link">
                                             <?= htmlspecialchars($d['Ma_hien_thi']) ?>
                                         </a>
                                     </td>
@@ -767,7 +767,7 @@
                                     </td>
                                     <td>
                                         <div class="disposal-actions">
-                                            <a href="<?= BASE_URL ?>/public/admin/disposal-detail/<?= $d['ID_phieu_huy'] ?>" class="disposal-action-btn view" title="Xem chi tiết">
+                                            <a href="<?= BASE_URL ?>/admin/disposal-detail/<?= $d['ID_phieu_huy'] ?>" class="disposal-action-btn view" title="Xem chi tiết">
                                                 <i class="fas fa-eye"></i>
                                             </a>
                                             <?php if ($d['Trang_thai'] == 'cho_duyet'): ?>

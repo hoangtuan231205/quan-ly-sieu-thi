@@ -37,49 +37,49 @@ $userInitials = strtoupper(substr($userName, 0, 2));
     <!-- Navigation -->
     <nav class="sidebar-nav">
         <!-- Dashboard -->
-        <a href="<?= BASE_URL ?>/public/admin" class="sidebar-nav-item <?= isDashboard() ? 'active' : '' ?>">
+        <a href="<?= BASE_URL ?>/admin" class="sidebar-nav-item <?= isDashboard() ? 'active' : '' ?>">
             <i class="fas fa-home"></i>
             <span>Trang chủ</span>
         </a>
         
         <!-- Kho hàng -->
-        <a href="<?= BASE_URL ?>/public/admin/products" class="sidebar-nav-item <?= isActive('products') ?>">
+        <a href="<?= BASE_URL ?>/admin/products" class="sidebar-nav-item <?= isActive('products') ?>">
             <i class="fas fa-boxes-stacked"></i>
             <span>Kho hàng</span>
         </a>
         
         <!-- Danh mục -->
-        <a href="<?= BASE_URL ?>/public/admin/categories" class="sidebar-nav-item <?= isActive('categories') ?>">
+        <a href="<?= BASE_URL ?>/admin/categories" class="sidebar-nav-item <?= isActive('categories') ?>">
             <i class="fas fa-layer-group"></i>
             <span>Danh mục</span>
         </a>
         
         <!-- Đơn hàng -->
-        <a href="<?= BASE_URL ?>/public/admin/orders" class="sidebar-nav-item <?= isActive('orders') ?>">
+        <a href="<?= BASE_URL ?>/admin/orders" class="sidebar-nav-item <?= isActive('orders') ?>">
             <i class="fas fa-shopping-cart"></i>
             <span>Đơn hàng</span>
         </a>
         
         <!-- Nhà cung cấp -->
-        <a href="<?= BASE_URL ?>/public/admin/suppliers" class="sidebar-nav-item <?= isActive('suppliers') ?>">
+        <a href="<?= BASE_URL ?>/admin/suppliers" class="sidebar-nav-item <?= isActive('suppliers') ?>">
             <i class="fas fa-truck"></i>
             <span>Nhà cung cấp</span>
         </a>
 
         <!-- Phiếu nhập -->
-        <a href="<?= BASE_URL ?>/public/warehouse" class="sidebar-nav-item <?= isActive('warehouse') ?>">
+        <a href="<?= BASE_URL ?>/warehouse" class="sidebar-nav-item <?= isActive('warehouse') ?>">
             <i class="fas fa-truck-loading"></i>
             <span>Phiếu nhập</span>
         </a>
         
         <!-- Phiếu hủy -->
-        <a href="<?= BASE_URL ?>/public/admin/disposals" class="sidebar-nav-item <?= isActive('disposal') ?>">
+        <a href="<?= BASE_URL ?>/admin/disposals" class="sidebar-nav-item <?= isActive('disposal') ?>">
             <i class="fas fa-trash-can"></i>
             <span>Phiếu hủy</span>
         </a>
         
         <!-- Báo cáo -->
-        <a href="<?= BASE_URL ?>/public/admin/reports" class="sidebar-nav-item <?= isActive('report') ?>">
+        <a href="<?= BASE_URL ?>/admin/reports" class="sidebar-nav-item <?= isActive('report') ?>">
             <i class="fas fa-chart-line"></i>
             <span>Báo cáo</span>
         </a>
@@ -88,7 +88,7 @@ $userInitials = strtoupper(substr($userName, 0, 2));
         <div class="sidebar-section-title">Cài đặt</div>
         
         <!-- Khách hàng -->
-        <a href="<?= BASE_URL ?>/public/admin/users" class="sidebar-nav-item <?= isActive('users') ?>">
+        <a href="<?= BASE_URL ?>/admin/users" class="sidebar-nav-item <?= isActive('users') ?>">
             <i class="fas fa-users"></i>
             <span>Khách hàng</span>
         </a>

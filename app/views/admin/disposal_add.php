@@ -11,9 +11,9 @@
     <div class="admin-modern-container">
         <!-- Breadcrumb -->
         <div class="admin-breadcrumb">
-            <a href="<?= BASE_URL ?>/public/">Trang chủ</a>
+            <a href="<?= BASE_URL ?>/">Trang chủ</a>
             <i class="fas fa-chevron-right" style="font-size: 10px;"></i>
-            <a href="<?= BASE_URL ?>/public/admin/disposals">Phiếu hủy</a>
+            <a href="<?= BASE_URL ?>/admin/disposals">Phiếu hủy</a>
             <i class="fas fa-chevron-right" style="font-size: 10px;"></i>
             <span class="current">Tạo mới</span>
         </div>
@@ -149,7 +149,7 @@
                                     <i class="fas fa-paper-plane"></i>
                                     <span>Tạo phiếu hủy</span>
                                 </button>
-                                <a href="<?= BASE_URL ?>/public/admin/disposals" class="btn-admin-secondary" style="width: 100%; justify-content: center; padding: 14px;">
+                                <a href="<?= BASE_URL ?>/admin/disposals" class="btn-admin-secondary" style="width: 100%; justify-content: center; padding: 14px;">
                                     <span>Hủy bỏ</span>
                                 </a>
                             </div>

@@ -41,7 +41,7 @@ include __DIR__ . '/../layouts/header.php';
                     <?php endif; ?>
 
                     <!-- Form -->
-                    <form method="POST" action="<?= BASE_URL ?>/public/auth/loginProcess" class="auth-form">
+                    <form method="POST" action="<?= BASE_URL ?>/auth/loginProcess" class="auth-form">
                         <!-- Email Input -->
                         <div class="form-group mb-3">
                             <label for="email" class="form-label">Email</label>
@@ -87,7 +87,7 @@ include __DIR__ . '/../layouts/header.php';
                                     Ghi nhớ đăng nhập
                                 </label>
                             </div>
-                            <a href="<?= BASE_URL ?>/public/auth/forgot-password" class="forgot-link">
+                            <a href="<?= BASE_URL ?>/auth/forgot-password" class="forgot-link">
                                 Quên mật khẩu?
                             </a>
                         </div>
@@ -117,7 +117,7 @@ include __DIR__ . '/../layouts/header.php';
                     <!-- Register Link -->
                     <div class="auth-footer">
                         <p>Chưa có tài khoản? 
-                            <a href="<?= BASE_URL ?>/public/auth/register" class="register-link">
+                            <a href="<?= BASE_URL ?>/auth/register" class="register-link">
                                 Đăng ký ngay
                             </a>
                         </p>

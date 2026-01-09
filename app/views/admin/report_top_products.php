@@ -22,9 +22,9 @@ $summary = $summary ?? ['total_qty' => 0, 'total_revenue' => 0, 'total_products'
     <div class="admin-modern-container">
         <!-- Breadcrumb -->
         <div class="admin-breadcrumb">
-            <a href="<?= BASE_URL ?>/public/">Trang chủ</a>
+            <a href="<?= BASE_URL ?>/">Trang chủ</a>
             <i class="fas fa-chevron-right" style="font-size: 10px;"></i>
-            <a href="<?= BASE_URL ?>/public/admin/reports">Báo cáo</a>
+            <a href="<?= BASE_URL ?>/admin/reports">Báo cáo</a>
             <i class="fas fa-chevron-right" style="font-size: 10px;"></i>
             <span class="current">Sản phẩm bán chạy</span>
         </div>
@@ -40,7 +40,7 @@ $summary = $summary ?? ['total_qty' => 0, 'total_revenue' => 0, 'total_products'
                 <p class="admin-page-subtitle">Top sản phẩm được mua nhiều nhất trong khoảng thời gian</p>
             </div>
             <div class="admin-header-actions">
-                <a href="<?= BASE_URL ?>/public/admin/export-top-products?date_from=<?= $date_from ?>&date_to=<?= $date_to ?>" class="btn-admin-primary">
+                <a href="<?= BASE_URL ?>/admin/export-top-products?date_from=<?= $date_from ?>&date_to=<?= $date_to ?>" class="btn-admin-primary">
                     <i class="fas fa-download"></i>
                     <span>Xuất Excel</span>
                 </a>
