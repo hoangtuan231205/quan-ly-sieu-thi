@@ -74,18 +74,30 @@ class App {
         // TRƯỜNG HỢP 3: /admin/* (ADMIN ROUTES)
         if ($url[0] === 'admin') {
             $this->controller = 'AdminController';
-            // Admin routes:
-            // /admin → dashboard
-            // /admin/products → products list
-            // /admin/orders → orders list
+ 
+            // --- API ROUTES: /admin/api/{resource}[/{id}] ---
+            // /admin/api/products         → apiProducts()
+            // /admin/api/products/5       → apiProducts(5)
+            // /admin/api/categories       → apiCategories()
+            // /admin/api/categories/5     → apiCategories(5)
+            if (isset($url[1]) && $url[1] === 'api' && isset($url[2])) {
+                $resource = $url[2]; // products | categories | ...
+                $id       = $url[3] ?? null; // optional
+ 
+                // Convert resource sang tên method: products → apiProducts
+                $methodName = 'api' . ucfirst(strtolower($resource));
+ 
+                $params = $id !== null ? [$id] : [];
+ 
+                $this->callController('AdminController', $methodName, $params);
+                return;
+            }
+ 
+            // --- NORMAL ADMIN ROUTES: /admin/{action}[/{id}] ---
             if (isset($url[1])) {
-        // export-products → exportProducts
-            $this->method = str_replace('-', '', lcfirst(ucwords($url[1], '-')));
-}
-            
-            // Params
+                $this->method = str_replace('-', '', lcfirst(ucwords($url[1], '-')));
+            }
             $this->params = array_slice($url, 2);
-            
             $this->callController($this->controller, $this->method, $this->params);
             return;
         }
