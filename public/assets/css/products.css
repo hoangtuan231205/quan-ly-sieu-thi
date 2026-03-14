@@ -1,0 +1,100 @@
+/* Hiệu ứng thông báo */
+.notification-enter {
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Hiệu ứng mượt cho modal */
+#productModal,
+#deleteModal {
+    transition: opacity 0.2s ease-in-out;
+}
+
+/* Hiệu ứng hover kéo thả file */
+.border-dashed:hover {
+    border-color: #7BC043;
+    background-color: #f0f9eb;
+}
+
+/* Thanh cuộn tùy chỉnh cho modal */
+.max-h-\[90vh\]::-webkit-scrollbar {
+    width: 8px;
+}
+
+/* ... */
+/* Hiệu ứng focus input (line 65) */
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(123, 192, 67, 0.2);
+}
+
+/* Spinner loading (line 108) */
+.spinner {
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #7BC043;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Style in ấn */
+@media print {
+
+    #notification,
+    button,
+    .no-print {
+        display: none !important;
+    }
+
+    table {
+        page-break-inside: auto;
+    }
+
+    tr {
+        page-break-inside: avoid;
+        page-break-after: auto;
+    }
+
+    button:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+
+    .fa-spinner {
+        animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+        from {
+            transform: rotate(0deg);
+        }
+
+        to {
+            transform: rotate(360deg);
+        }
+    }
+}

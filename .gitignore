@@ -1,0 +1,22 @@
+# Dependencies
+/vendor
+
+# Environment & Sensitive Config
+.env
+config/config.php
+
+# IDE
+/.vscode
+/.idea
+
+# Logs (không commit log vào git)
+/logs/
+/public/logs/
+
+# User uploaded images (không commit ảnh upload)
+/public/assets/img/products/
+/public/uploads/
+
+# OS files
+.DS_Store
+Thumbs.db
